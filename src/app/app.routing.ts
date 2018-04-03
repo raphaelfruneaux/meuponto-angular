@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 
-import { AuthLayoutComponent } from './layouts/auth/auth-layout.component';
+import { AuthLayoutComponent } from './core/auth/auth-layout.component';
+import { Error404Component } from './error/';
 
 export const AppRoutes: Routes = [
   {
@@ -9,10 +10,7 @@ export const AppRoutes: Routes = [
     children: [{
       path: 'auth',
       loadChildren: './auth/auth.module#AuthModule'
-    }, {
-      path: 'error',
-      loadChildren: './error/error.module#ErrorModule'
     }]
   },
-  { path: '**', redirectTo: 'error/404' }
+  { path: '**', component: Error404Component }
 ];

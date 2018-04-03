@@ -7,8 +7,7 @@ import { Error404Component } from './error404/error404.component';
 
 @NgModule({
   imports: [
-    CommonModule,
-    RouterModule.forChild(ErrorRoutes)
+    CommonModule
   ],
   declarations: [Error404Component]
 })

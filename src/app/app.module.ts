@@ -11,7 +11,9 @@ import { environment } from './../environments/environment';
 import { AppRoutes } from './app.routing';
 import { AppComponent } from './app.component';
 
-import { AuthLayoutComponent } from './layouts/auth/auth-layout.component';
+import { AuthLayoutComponent } from './core/auth/auth-layout.component';
+
+import { ErrorModule } from './error/';
 
 
 @NgModule({
@@ -24,7 +26,8 @@ import { AuthLayoutComponent } from './layouts/auth/auth-layout.component';
     RouterModule.forRoot(AppRoutes),
     AngularFireModule.initializeApp(environment.firebase, 'meuponto'),
     AngularFireAuthModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    ErrorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
