@@ -19,13 +19,13 @@
                 </div>
 
                 <div class="form-group">
-                  <button type="buton" class="btn btn-primary btn-block" style="margin-bottom: 20px" (click)="signInWithEmail()" [disabled]="formCtrl.form.invalid">
+                  <button type="submit" class="btn btn-primary btn-block" style="margin-bottom: 20px" (click)="signIn()" [disabled]="formCtrl.form.invalid">
                     Login with Email
                   </button>
                 </div>
 
 
-                <div class="form-group">
+                <!-- <div class="form-group">
                   <button type="buton" class="btn btn-block" (click)="signInWithFacebook()">
                     <i class="fa fa-facebook" aria-hidden="true"></i>
                     Login with Facebook
@@ -45,7 +45,7 @@
                     <i class="fa fa-google" aria-hidden="true"></i>
                     Login with Google
                   </button>
-                </div>
+                </div> -->
               </form>
 
             </div>
@@ -59,20 +59,3 @@
   </div>
   <!-- end container -->
 </div>
-
-
-<h1>Sign-in</h1>
-<!-- <form action="">
-  <input type="text" name="username" placeholder="Username">
-  <input type="password" name="password" placeholder="Password">
-  <button>Sign-in</button>
-</form> -->
-
-<div *ngIf="afAuth.authState | async as user; else showLogin">
-  <h1>Hello {{ user.displayName }}!</h1>
-  <button (click)="logout()">Logout</button>
-</div>
-<ng-template #showLogin>
-  <p>Please login.</p>
-  <button (click)="login()">Login with Google</button>
-</ng-template>

@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 import { AuthRoutes } from './auth.routing';
+import { AuthService } from './auth.service';
 import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
 
@@ -14,6 +15,7 @@ import { SignupComponent } from './signup/signup.component';
     FormsModule,
     RouterModule.forChild(AuthRoutes)
   ],
-  declarations: [SigninComponent, SignupComponent]
+  declarations: [SigninComponent, SignupComponent],
+  providers: [AuthService]
 })
 export class AuthModule { }
