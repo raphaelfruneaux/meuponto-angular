@@ -20,7 +20,7 @@ export class AuthService {
   }
 
   isAuthenticated() {
-    return Boolean(this.userDetails);
+    return !!this.userDetails;
   }
 
   getCurrentUser() {
