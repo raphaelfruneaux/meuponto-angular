@@ -8,33 +8,41 @@ import * as firebase from 'firebase/app';
 @Injectable()
 export class AuthService {
   private user: Observable<firebase.User>;
-  private currentUser: firebase.User = null;
+  private userDetails: firebase.User = null;
 
   constructor(private _firebaseAuth: AngularFireAuth) {
     this.user = this._firebaseAuth.authState;
     this.user.subscribe(user => {
-      this.currentUser = user || null;
+      if (user) {
+        this.userDetails = user;
+      }
     });
   }
 
   isAuthenticated() {
-    return Boolean(this.currentUser);
+    return Boolean(this.userDetails);
   }
 
-  signInWithEmail(email, password) {
+  getCurrentUser() {
+    return this.user.map(userData => userData.toJSON());
+  }
+
+  signInWithEmail(email, password): Observable<any> {
     const credential = firebase.auth.EmailAuthProvider.credential(
       email,
       password
     );
-    return this._firebaseAuth.auth.signInWithEmailAndPassword(email, password);
+    return Observable.fromPromise(
+      this._firebaseAuth.auth.signInWithEmailAndPassword(email, password)
+    );
   }
 
   logout(): Observable<boolean> {
     return Observable.create(observer => {
       this._firebaseAuth.auth.signOut().then(
-        res => {
-          console.log(res);
-          observer.next(Boolean(res));
+        data => {
+          console.log(data);
+          observer.next(Boolean(data));
         },
         error => {
           observer.error(error);
