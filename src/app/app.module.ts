@@ -1,6 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { RouterModule, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { NgModule, Injector } from '@angular/core';
+import {
+  RouterModule,
+  ActivatedRouteSnapshot,
+  RouterStateSnapshot,
+  Router
+} from '@angular/router';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -12,17 +17,12 @@ import { environment } from './../environments/environment';
 import { AppRoutes } from './app.routing';
 import { AppComponent } from './app.component';
 
+import { AuthModule } from './auth';
 import { ErrorModule } from './error';
 import { AppLayoutComponent, AuthLayoutComponent } from './core';
-import { AuthGuard, AuthService } from './auth';
-
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    AppLayoutComponent,
-    AuthLayoutComponent
-  ],
+  declarations: [AppComponent, AppLayoutComponent, AuthLayoutComponent],
   imports: [
     BrowserModule,
     RouterModule.forRoot(AppRoutes),
@@ -30,9 +30,10 @@ import { AuthGuard, AuthService } from './auth';
     AngularFireAuthModule,
     AngularFirestoreModule,
     AngularFireDatabaseModule,
+    AuthModule,
     ErrorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
