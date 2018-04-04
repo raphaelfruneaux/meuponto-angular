@@ -17,7 +17,7 @@ import { environment } from './../environments/environment';
 import { AppRoutes } from './app.routing';
 import { AppComponent } from './app.component';
 
-import { AuthModule } from './auth';
+import { AuthModule, AuthService, AuthGuard } from './auth';
 import { ErrorModule } from './error';
 import { AppLayoutComponent, AuthLayoutComponent } from './core';
 
@@ -30,10 +30,12 @@ import { AppLayoutComponent, AuthLayoutComponent } from './core';
     AngularFireAuthModule,
     AngularFirestoreModule,
     AngularFireDatabaseModule,
-    AuthModule,
     ErrorModule
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

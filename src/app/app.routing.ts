@@ -8,7 +8,7 @@ import { AppLayoutComponent, AuthLayoutComponent } from './core';
 export const AppRoutes: Routes = [
   {
     path: '',
-    canActivate: ['AuthGuard'],
+    canActivate: [AuthGuard],
     component: AppLayoutComponent
   },
   {
