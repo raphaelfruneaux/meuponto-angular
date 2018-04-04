@@ -16,8 +16,9 @@ import { environment } from './../environments/environment';
 
 import { AppRoutes } from './app.routing';
 import { AppComponent } from './app.component';
+import { AuthGuard } from './auth.guard';
 
-import { AuthModule, AuthService, AuthGuard } from './auth';
+import { AuthModule, AuthService } from './auth';
 import { ErrorModule } from './error';
 import { AppLayoutComponent, AuthLayoutComponent } from './core';
 

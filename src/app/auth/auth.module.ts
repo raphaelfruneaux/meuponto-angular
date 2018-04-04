@@ -5,7 +5,6 @@ import { FormsModule } from '@angular/forms';
 
 import { AuthRoutes } from './auth.routing';
 import { AuthService } from './auth.service';
-import { AuthGuard } from './auth.guard';
 import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
 
@@ -17,6 +16,6 @@ import { SignupComponent } from './signup/signup.component';
     RouterModule.forChild(AuthRoutes)
   ],
   declarations: [SigninComponent, SignupComponent],
-  providers: [AuthService, AuthGuard]
+  providers: [AuthService]
 })
 export class AuthModule { }

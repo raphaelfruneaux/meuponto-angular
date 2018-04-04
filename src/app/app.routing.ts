@@ -1,7 +1,8 @@
 import { Routes } from '@angular/router';
 
+import { AuthGuard } from './auth.guard';
+
 import { Error404Component } from './error';
-import { AuthGuard } from './auth';
 import { AppLayoutComponent, AuthLayoutComponent } from './core';
 
 
