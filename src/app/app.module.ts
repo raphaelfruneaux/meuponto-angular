@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 import { environment } from './../environments/environment';
@@ -26,6 +27,7 @@ import { ErrorModule } from './error/';
     RouterModule.forRoot(AppRoutes),
     AngularFireModule.initializeApp(environment.firebase, 'meuponto'),
     AngularFireAuthModule,
+    AngularFirestoreModule,
     AngularFireDatabaseModule,
     ErrorModule
   ],
