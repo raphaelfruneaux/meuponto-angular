@@ -12,6 +12,7 @@ import { environment } from './../environments/environment';
 import { AppRoutes } from './app.routing';
 import { AppComponent } from './app.component';
 
+import { AppLayoutComponent } from './core/app/app-layout.component';
 import { AuthLayoutComponent } from './core/auth/auth-layout.component';
 
 import { ErrorModule } from './error/';
@@ -20,6 +21,7 @@ import { ErrorModule } from './error/';
 @NgModule({
   declarations: [
     AppComponent,
+    AppLayoutComponent,
     AuthLayoutComponent
   ],
   imports: [
