@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterModule, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -12,10 +12,9 @@ import { environment } from './../environments/environment';
 import { AppRoutes } from './app.routing';
 import { AppComponent } from './app.component';
 
-import { AppLayoutComponent } from './core/app/app-layout.component';
-import { AuthLayoutComponent } from './core/auth/auth-layout.component';
-
-import { ErrorModule } from './error/';
+import { ErrorModule } from './error';
+import { AppLayoutComponent, AuthLayoutComponent } from './core';
+import { AuthGuard, AuthService } from './auth';
 
 
 @NgModule({
