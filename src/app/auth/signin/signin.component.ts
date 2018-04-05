@@ -19,11 +19,7 @@ export class SigninComponent implements OnInit {
 
   constructor(private router: Router, private authService: AuthService) {}
 
-  ngOnInit(): void {
-    this.authService.getCurrentUser().subscribe(data => {
-      console.log(data);
-    });
-  }
+  ngOnInit(): void {}
 
   signIn() {
     this.authService

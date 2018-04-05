@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, Injector } from '@angular/core';
+import { NgModule, Injector, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import {
   RouterModule,
   ActivatedRouteSnapshot,
@@ -18,12 +18,16 @@ import { AppRoutes } from './app.routing';
 import { AppComponent } from './app.component';
 import { AuthGuard } from './auth.guard';
 
-import { AuthModule, AuthService } from './auth';
-import { ErrorModule } from './error';
 import { AppLayoutComponent, AuthLayoutComponent } from './core';
+import { AuthService } from './auth';
+import { ErrorModule } from './error';
+import { SharedModule } from './shared';
 
 @NgModule({
   declarations: [AppComponent, AppLayoutComponent, AuthLayoutComponent],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
+  ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(AppRoutes),
@@ -31,7 +35,8 @@ import { AppLayoutComponent, AuthLayoutComponent } from './core';
     AngularFireAuthModule,
     AngularFirestoreModule,
     AngularFireDatabaseModule,
-    ErrorModule
+    ErrorModule,
+    SharedModule
   ],
   providers: [
     AuthService,
