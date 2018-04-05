@@ -1,0 +1,20 @@
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 12px 18px;
+
+  background-color: #fff;
+  background-clip: padding-box;
+
+  border: 2px solid #dadfe6;
+  border-radius: 6px;
+
+  color: #2a2a2a;
+  // color: #495057;
+
+  // font-size: 1rem;
+  font-family: Roboto;
+  // line-height: 1.5;
+
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}

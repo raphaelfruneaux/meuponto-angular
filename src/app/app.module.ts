@@ -19,7 +19,7 @@ import { AppComponent } from './app.component';
 import { AuthGuard } from './auth.guard';
 
 import { AppLayoutComponent, AuthLayoutComponent } from './core';
-import { AuthService } from './auth';
+import { AuthModule, AuthService } from './auth';
 import { ErrorModule } from './error';
 import { SharedModule } from './shared';
 
