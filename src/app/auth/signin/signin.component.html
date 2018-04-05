@@ -1,29 +1,29 @@
 <div class="auth-container">
   <app-card>
     <div class="sign-content">
-        <h3 align="center">Sign in</h3>
+      <h3 align="center">Sign in</h3>
 
-        <small class="form-text sub-title center">
-          Hello! Sign in with your username or email
-        </small>
+      <small class="form-text sub-title center">
+        Hello! Sign in with your username or email
+      </small>
 
-        <form name="userform" method="post" #formCtrl="ngForm">
-          <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" [(ngModel)]="user.email" name="email" placeholder="Email" required>
-          </div>
+      <form name="userform" method="post" #formCtrl="ngForm">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" class="form-control" [(ngModel)]="user.email" name="email" placeholder="Email" required>
+        </div>
 
-          <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" [(ngModel)]="user.password" name="password" placeholder="Password" required>
-          </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control" [(ngModel)]="user.password" name="password" placeholder="Password" required>
+        </div>
 
-          <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-block" style="margin-bottom: 20px" (click)="signIn()" [disabled]="formCtrl.form.invalid">
-              Login with Email
-            </button>
-          </div>
-          <!--
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary btn-block" style="margin-bottom: 20px" (click)="signIn()" [disabled]="formCtrl.form.invalid">
+            Login with Email
+          </button>
+        </div>
+        <!--
             <div class="form-group">
               <button type="buton" class="btn btn-block" (click)="signInWithFacebook()">
                 <i class="fa fa-facebook" aria-hidden="true"></i>
@@ -46,7 +46,7 @@
               </button>
             </div>
             -->
-        </form>
+      </form>
     </div>
   </app-card>
 </div>
