@@ -12,10 +12,13 @@
   color: #2a2a2a;
   // color: #495057;
 
-  font-size: 16px;
-  font-family: 'Roboto';
-  line-height: 45px;
+  // font-size: 16px;
+  // font-family: 'Roboto';
+  // line-height: 45px;
 
-  transition: border-color .15s ease-in-out,
-  box-shadow .15s ease-in-out;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+
+  &:focus {
+    box-shadow: none;
+  }
 }

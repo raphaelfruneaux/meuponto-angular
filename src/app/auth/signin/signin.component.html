@@ -19,34 +19,31 @@
         </div>
 
         <div class="form-group">
+          <a class="forgot-password" routerlink="../request-password" href="#/auth/request-password">Forgot Password?</a>
+        </div>
+
+        <div class="form-group">
           <button type="submit" class="btn btn-primary btn-block" style="margin-bottom: 20px" (click)="signIn()" [disabled]="formCtrl.form.invalid">
-            Login with Email
+            Sign in
           </button>
         </div>
-        <!--
-            <div class="form-group">
-              <button type="buton" class="btn btn-block" (click)="signInWithFacebook()">
-                <i class="fa fa-facebook" aria-hidden="true"></i>
-                Login with Facebook
-              </button>
-
-              <button type="button" class="btn btn-block" (click)="signInWithTwitter()">
-                <i class="fa fa-twitter" aria-hidden="true"></i>
-                Login with Twitter
-              </button>
-
-              <button type="button" class="btn btn-block" (click)="signInWithGithub()">
-                <i class="fa fa-github" aria-hidden="true"></i>
-                Login with Github
-              </button>
-
-              <button type="button" class="btn btn-block" (click)="signInWithGoogle()">
-                <i class="fa fa-google" aria-hidden="true"></i>
-                Login with Google
-              </button>
-            </div>
-            -->
       </form>
+
+      <div class="links">
+        <!-- <small class="form-text">Or connect with:</small>
+        <div class="socials">
+          <a href="https://github.com/akveo/nebular" target="_blank" class="socicon-github with-icon"></a>
+          <a href="https://www.facebook.com/akveo/" target="_blank" class="socicon-facebook with-icon"></a>
+          <a href="https://twitter.com/akveo_inc" target="_blank" class="socicon-twitter with-icon"></a>
+        </div> -->
+
+        <small class="form-text">
+          Don't have an account?
+          <a routerLink="../sign-up" href="#">
+            <strong>Sign Up</strong>
+          </a>
+        </small>
+      </div>
     </div>
   </app-card>
 </div>
