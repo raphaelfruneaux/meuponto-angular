@@ -8,22 +8,29 @@
 
     <form name="userform" method="post" #formCtrl="ngForm">
       <div class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
+        <label class="sr-only" for="name">Your name</label>
+        <input type="name" class="form-control" [(ngModel)]="user.name" name="name" placeholder="Your name" required>
+      </div>
+
+      <div class="form-group">
+        <label class="sr-only" for="email">Email address</label>
         <input type="email" class="form-control" [(ngModel)]="user.email" name="email" placeholder="Email" required>
       </div>
 
       <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
+        <label class="sr-only" for="password">Password</label>
         <input type="password" class="form-control" [(ngModel)]="user.password" name="password" placeholder="Password" required>
       </div>
 
       <div class="form-group">
-        <a class="forgot-password" routerlink="../request-password" href="#/auth/request-password">Forgot Password?</a>
+        <label class="sr-only" for="password2">Confirm password</label>
+        <input type="password" class="form-control" [(ngModel)]="user.password2" name="password2" placeholder="Confirm passowrd"
+          required>
       </div>
 
       <div class="form-group">
-        <button type="submit" class="btn btn-primary btn-block" style="margin-bottom: 20px" (click)="signIn()" [disabled]="formCtrl.form.invalid">
-          Sign in
+        <button type="submit" class="btn btn-primary btn-block" style="margin-bottom: 20px" (click)="signUp()" [disabled]="formCtrl.form.invalid">
+          Sign Up
         </button>
       </div>
     </form>
@@ -37,7 +44,7 @@
       </div> -->
 
       <small class="form-text">
-          Already have an account?
+        Already have an account?
         <a routerLink="../sign-in" href="#">
           <strong>Sign in</strong>
         </a>
