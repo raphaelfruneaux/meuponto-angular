@@ -1,49 +1,47 @@
-<div class="auth-container">
-  <app-card>
-    <div class="sign-content">
-      <h3 align="center">Sign in</h3>
+<app-card>
+  <div class="sign-content">
+    <h3 align="center">Sign in</h3>
 
-      <small class="form-text sub-title center">
-        Hello! Sign in with your username or email
-      </small>
+    <small class="form-text sub-title center">
+      Hello! Sign in with your username or email
+    </small>
 
-      <form name="userform" method="post" #formCtrl="ngForm">
-        <div class="form-group">
-          <label for="exampleInputEmail1">Email address</label>
-          <input type="email" class="form-control" [(ngModel)]="user.email" name="email" placeholder="Email" required>
-        </div>
-
-        <div class="form-group">
-          <label for="exampleInputPassword1">Password</label>
-          <input type="password" class="form-control" [(ngModel)]="user.password" name="password" placeholder="Password" required>
-        </div>
-
-        <div class="form-group">
-          <a class="forgot-password" routerlink="../request-password" href="#/auth/request-password">Forgot Password?</a>
-        </div>
-
-        <div class="form-group">
-          <button type="submit" class="btn btn-primary btn-block" style="margin-bottom: 20px" (click)="signIn()" [disabled]="formCtrl.form.invalid">
-            Sign in
-          </button>
-        </div>
-      </form>
-
-      <div class="links">
-        <!-- <small class="form-text">Or connect with:</small>
-        <div class="socials">
-          <a href="https://github.com/akveo/nebular" target="_blank" class="socicon-github with-icon"></a>
-          <a href="https://www.facebook.com/akveo/" target="_blank" class="socicon-facebook with-icon"></a>
-          <a href="https://twitter.com/akveo_inc" target="_blank" class="socicon-twitter with-icon"></a>
-        </div> -->
-
-        <small class="form-text">
-          Don't have an account?
-          <a routerLink="../sign-up" href="#">
-            <strong>Sign Up</strong>
-          </a>
-        </small>
+    <form name="userform" method="post" #formCtrl="ngForm">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" [(ngModel)]="user.email" name="email" placeholder="Email" required>
       </div>
+
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" [(ngModel)]="user.password" name="password" placeholder="Password" required>
+      </div>
+
+      <div class="form-group">
+        <a class="forgot-password" routerlink="../request-password" href="#/auth/request-password">Forgot Password?</a>
+      </div>
+
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block" style="margin-bottom: 20px" (click)="signIn()" [disabled]="formCtrl.form.invalid">
+          Sign in
+        </button>
+      </div>
+    </form>
+
+    <div class="links">
+      <!-- <small class="form-text">Or connect with:</small>
+      <div class="socials">
+        <a href="https://github.com/akveo/nebular" target="_blank" class="socicon-github with-icon"></a>
+        <a href="https://www.facebook.com/akveo/" target="_blank" class="socicon-facebook with-icon"></a>
+        <a href="https://twitter.com/akveo_inc" target="_blank" class="socicon-twitter with-icon"></a>
+      </div> -->
+
+      <small class="form-text">
+        Don't have an account?
+        <a routerLink="../sign-up" href="#">
+          <strong>Sign Up</strong>
+        </a>
+      </small>
     </div>
-  </app-card>
-</div>
+  </div>
+</app-card>
