@@ -9,6 +9,8 @@ import { AuthComponent } from './auth.component';
 import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
 import { SharedModule } from '../shared/shared.module';
+import { RequestPassowrdComponent } from './request-passowrd/request-passowrd.component';
+import { RecoveryPassowrdComponent } from './recovery-passowrd/recovery-passowrd.component';
 
 
 const COMPONENTS = [
@@ -23,7 +25,7 @@ const COMPONENTS = [
     SharedModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  declarations: [COMPONENTS],
+  declarations: [COMPONENTS, RequestPassowrdComponent, RecoveryPassowrdComponent],
   providers: [AuthService]
 })
 export class AuthModule { }
