@@ -1,6 +1,7 @@
 .form-control {
   display: block;
   width: 100%;
+  height: initial;
   padding: 12px 18px;
 
   background-color: #fff;
@@ -14,7 +15,6 @@
 
   // font-size: 16px;
   // font-family: 'Roboto';
-  // line-height: 45px;
 
   transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 
@@ -22,7 +22,6 @@
     box-shadow: none;
   }
 }
-
 
 .sr-only {
   position: absolute;

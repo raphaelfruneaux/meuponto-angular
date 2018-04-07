@@ -8,22 +8,16 @@ import * as firebase from 'firebase/app';
 
 @Injectable()
 export class AuthService {
-  private user: Observable<firebase.User>;
-  private userDetails: firebase.User = null;
+  private _authState: Observable<firebase.User> = null;
 
   constructor(private _firebaseAuth: AngularFireAuth, private router: Router) {
-    this.user = this._firebaseAuth.authState;
-    this.user.subscribe(user => {
-      if (user) {
-        this.userDetails = user;
-      }
-    });
+    this._authState = this._firebaseAuth.authState;
   }
 
   getCurrentUser(): Observable<firebase.User> {
-    return this.user.map(userDetails => {
-      if (userDetails) {
-        return userDetails.toJSON() as firebase.User;
+    return this._authState.map(user => {
+      if (user) {
+        return user.toJSON() as firebase.User;
       }
       return null;
     });
@@ -35,29 +29,26 @@ export class AuthService {
     });
   }
 
-  signInWithEmail(email, password): Observable<any> {
-    const credential = firebase.auth.EmailAuthProvider.credential(
-      email,
-      password
-    );
+  signin(email, password) {
+    this._firebaseAuth.auth
+      .signInWithEmailAndPassword(email, password)
+      .then(() => {
+        this.router.navigate(['']);
+      })
+      .catch(error => {
+        console.warn(error);
+      });
+  }
+
+  signup(email: string, password: string) {
     return Observable.fromPromise(
-      this._firebaseAuth.auth.signInWithEmailAndPassword(email, password)
+      this._firebaseAuth.auth.createUserWithEmailAndPassword(email, password)
     );
   }
 
-  logout(): Observable<boolean> {
-    return Observable.create(observer => {
-      this._firebaseAuth.auth.signOut().then(
-        data => {
-          this.router.navigate(['auth/sign-in']);
-          observer.next(Boolean(data));
-          observer.complete();
-        },
-        error => {
-          observer.error(error);
-          observer.complete();
-        }
-      );
+  logout(): void {
+    this._firebaseAuth.auth.signOut().then(() => {
+      this.router.navigate(['auth/sign-in']);
     });
   }
 }

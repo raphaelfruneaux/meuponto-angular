@@ -12,33 +12,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./signin.component.scss']
 })
 export class SigninComponent implements OnInit {
-  public user = {
-    email: '',
-    password: ''
-  };
+  public email: string;
+  public password: string;
 
-  constructor(private router: Router, private authService: AuthService) {}
+  constructor(private authService: AuthService) {}
 
   ngOnInit(): void {}
 
   signIn() {
-    this.authService
-      .signInWithEmail(this.user.email, this.user.password)
-      .subscribe(
-        data => {
-          this.router.navigate(['']);
-        },
-        error => {
-          console.log(error);
-        }
-      );
+    this.authService.signin(this.email, this.password);
   }
-
-  signInWithFacebook() {}
-
-  signInWithTwitter() {}
-
-  signInWithGithub() {}
-
-  signInWithGoogle() {}
 }

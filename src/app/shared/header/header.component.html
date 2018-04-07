@@ -10,12 +10,11 @@
 
   <!-- Tools Container -->
   <div class="tools-container">
-
     <!-- User Tool -->
-    <div class="user-container">
+    <div class="user-container" *ngIf="user">
       <div class="user-info">
         <div class="user-picture"></div>
-        <div class="user-name">Teste</div>
+        <div class="user-name">{{ user.displayName || 'Olá' }}</div>
       </div>
       <ul class="user-nav">
         <li class="item">
@@ -27,7 +26,6 @@
 
     <!-- Notification Tool -->
     <div class="notification-container"></div>
-
   </div>
 
 </header>
