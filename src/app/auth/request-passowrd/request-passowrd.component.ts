@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./request-passowrd.component.scss']
 })
 export class RequestPassowrdComponent implements OnInit {
+  email: string;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
+
+  requestPassword() {}
 
 }

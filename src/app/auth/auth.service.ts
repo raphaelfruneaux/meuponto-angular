@@ -46,6 +46,12 @@ export class AuthService {
     );
   }
 
+  requestPassword(email: string) {
+    this._firebaseAuth.auth.sendPasswordResetEmail(email).then((data) => {
+      console.log(data);
+    });
+  }
+
   logout(): void {
     this._firebaseAuth.auth.signOut().then(() => {
       this.router.navigate(['auth/sign-in']);

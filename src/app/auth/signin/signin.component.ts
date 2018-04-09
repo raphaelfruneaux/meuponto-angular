@@ -12,8 +12,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./signin.component.scss']
 })
 export class SigninComponent implements OnInit {
-  public email: string;
-  public password: string;
+  email: string;
+  password: string;
 
   constructor(private authService: AuthService) {}
 
