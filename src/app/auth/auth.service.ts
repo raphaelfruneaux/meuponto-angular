@@ -49,6 +49,8 @@ export class AuthService {
   requestPassword(email: string) {
     this._firebaseAuth.auth.sendPasswordResetEmail(email).then((data) => {
       console.log(data);
+    }, error => {
+      console.warn(error);
     });
   }
 

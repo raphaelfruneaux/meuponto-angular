@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-request-passowrd',
@@ -8,10 +9,14 @@ import { Component, OnInit } from '@angular/core';
 export class RequestPassowrdComponent implements OnInit {
   email: string;
 
-  constructor() {}
+  constructor(
+    private authService: AuthService
+  ) {}
 
   ngOnInit() {}
 
-  requestPassword() {}
+  requestPassword() {
+    this.authService.requestPassword(this.email);
+  }
 
 }
