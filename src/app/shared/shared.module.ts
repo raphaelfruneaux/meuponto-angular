@@ -1,17 +1,21 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { CardComponent } from './card/card.component';
 
-const COMPONENTS = [
-  HeaderComponent, SidebarComponent, CardComponent
-];
+import { UserModule } from '../user';
+
+const COMPONENTS = [HeaderComponent, SidebarComponent, CardComponent];
 
 @NgModule({
-  imports: [ CommonModule ],
-  declarations: [ COMPONENTS ],
-  exports: [ COMPONENTS, CommonModule ]
+  imports: [
+    CommonModule,
+    UserModule
+  ],
+  declarations: [COMPONENTS],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  exports: [COMPONENTS]
 })
-export class SharedModule { }
+export class SharedModule {}

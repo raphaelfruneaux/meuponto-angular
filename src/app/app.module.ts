@@ -14,7 +14,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 import { environment } from './../environments/environment';
 
-import { AppRoutes } from './app.routing';
+import { AppRoutingModule } from './app.routing.module';
 import { AppComponent } from './app.component';
 import { AuthGuard } from './auth.guard';
 
@@ -25,12 +25,10 @@ import { SharedModule } from './shared';
 
 @NgModule({
   declarations: [AppComponent, AppLayoutComponent, AuthLayoutComponent],
-  schemas: [
-    CUSTOM_ELEMENTS_SCHEMA
-  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(AppRoutes),
+    AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase, 'meuponto'),
     AngularFireAuthModule,
     AngularFirestoreModule,
@@ -38,10 +36,7 @@ import { SharedModule } from './shared';
     ErrorModule,
     SharedModule
   ],
-  providers: [
-    AuthService,
-    AuthGuard
-  ],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

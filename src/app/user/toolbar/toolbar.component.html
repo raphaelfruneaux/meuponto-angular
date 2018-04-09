@@ -1,0 +1,12 @@
+<div class="user-container" *ngIf="user">
+  <div class="user-info">
+    <div class="user-picture"></div>
+    <div class="user-name">{{ user.displayName || 'Olá' }}</div>
+  </div>
+  <ul class="user-nav">
+    <li class="item">
+      <a routerLink="/user/profile" href="#">Perfil</a>
+      <a href="javascript:;" (click)="logout()">Sair</a>
+    </li>
+  </ul>
+</div>

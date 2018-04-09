@@ -11,18 +11,7 @@
   <!-- Tools Container -->
   <div class="tools-container">
     <!-- User Tool -->
-    <div class="user-container" *ngIf="user">
-      <div class="user-info">
-        <div class="user-picture"></div>
-        <div class="user-name">{{ user.displayName || 'Olá' }}</div>
-      </div>
-      <ul class="user-nav">
-        <li class="item">
-          <a href="#">Perfil</a>
-          <a href="javascript:;" (click)="logout()">Sair</a>
-        </li>
-      </ul>
-    </div>
+    <app-user-toolbar></app-user-toolbar>
 
     <!-- Notification Tool -->
     <div class="notification-container"></div>
