@@ -28,8 +28,8 @@ import { ErrorModule } from './error';
 import { SharedModule } from './shared';
 
 export class ToastCustomOptions extends ToastOptions {
-  animate = 'fade'; // you can override any options available
-  // positionClass = 'toast-top-center';
+  animate = 'fade';
+  showCloseButton = true;
 }
 
 @NgModule({

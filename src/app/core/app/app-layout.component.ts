@@ -1,4 +1,5 @@
 import { Component, ViewContainerRef, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { ToastsManager, Toast } from 'ng2-toastr';
 
@@ -13,9 +14,16 @@ export class AppLayoutComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private toastr: ToastsManager,
-    private vcr: ViewContainerRef
+    private vcr: ViewContainerRef,
+    private router: Router
   ) {
     this.toastr.setRootViewContainerRef(vcr);
+    this.toastr.onClickToast().subscribe((toast: Toast) => {
+      if (toast.data && toast.data['url']) {
+        this.router.navigate([toast.data['url']]);
+        this.toastr.clearToast(toast);
+      }
+    });
   }
 
   ngOnInit(): void {
@@ -25,7 +33,7 @@ export class AppLayoutComponent implements OnInit {
       }
 
       if (!userDetails.displayName) {
-        this.toastr.info('Hey, tell us your name!');
+        this.toastr.info('Hey, tell us your name!', '', { data: { url: '/user/profile' }});
       }
     });
   }
