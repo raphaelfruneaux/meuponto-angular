@@ -8,7 +8,8 @@ import {
   Router
 } from '@angular/router';
 
-import {ToastModule} from 'ng2-toastr/ng2-toastr';
+import { ToastOptions } from 'ng2-toastr';
+import { ToastModule } from 'ng2-toastr/ng2-toastr';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -26,6 +27,11 @@ import { AuthModule, AuthService } from './auth';
 import { ErrorModule } from './error';
 import { SharedModule } from './shared';
 
+export class ToastCustomOptions extends ToastOptions {
+  animate = 'fade'; // you can override any options available
+  // positionClass = 'toast-top-center';
+}
+
 @NgModule({
   declarations: [AppComponent, AppLayoutComponent, AuthLayoutComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -42,7 +48,11 @@ import { SharedModule } from './shared';
     ErrorModule,
     SharedModule
   ],
-  providers: [AuthService, AuthGuard],
+  providers: [
+    AuthService,
+    AuthGuard,
+    { provide: ToastOptions, useClass: ToastCustomOptions }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

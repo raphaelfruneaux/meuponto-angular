@@ -1,6 +1,8 @@
 import { Component, ViewContainerRef, OnInit } from '@angular/core';
 
-import { ToastsManager } from 'ng2-toastr';
+import { ToastsManager, Toast } from 'ng2-toastr';
+
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-app-layout',
@@ -8,11 +10,23 @@ import { ToastsManager } from 'ng2-toastr';
   styleUrls: ['./app-layout.component.scss']
 })
 export class AppLayoutComponent implements OnInit {
-  constructor(private toastr: ToastsManager, vcr: ViewContainerRef) {
+  constructor(
+    private authService: AuthService,
+    private toastr: ToastsManager,
+    private vcr: ViewContainerRef
+  ) {
     this.toastr.setRootViewContainerRef(vcr);
   }
 
   ngOnInit(): void {
-    this.toastr.info('Just some information for you.');
+    this.authService.getCurrentUser().subscribe(userDetails => {
+      if (!userDetails.emailVerified) {
+        this.toastr.warning('Your email is not verified!');
+      }
+
+      if (!userDetails.displayName) {
+        this.toastr.info('Hey, tell us your name!');
+      }
+    });
   }
 }
