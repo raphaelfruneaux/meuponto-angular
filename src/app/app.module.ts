@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, Injector, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import {
   RouterModule,
@@ -7,6 +8,8 @@ import {
   Router
 } from '@angular/router';
 
+import {ToastModule} from 'ng2-toastr/ng2-toastr';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
@@ -28,7 +31,10 @@ import { SharedModule } from './shared';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
+    ToastModule.forRoot(),
+    NgbModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase, 'meuponto'),
     AngularFireAuthModule,
     AngularFirestoreModule,
