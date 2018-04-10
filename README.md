@@ -1,4 +1,6 @@
-# MeupontoAngular
+# Meuponto
+
+[![Build Status](https://travis-ci.org/raphaelfruneaux/meuponto-angular.svg?branch=master)](https://travis-ci.org/raphaelfruneaux/meuponto-angular)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.7.
 
