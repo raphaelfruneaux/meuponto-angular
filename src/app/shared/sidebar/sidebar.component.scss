@@ -1,0 +1,18 @@
+aside {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 300px;
+  height: 100vh;
+
+  padding: {
+    top: 140px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+  }
+
+  background: #fff;
+  box-shadow: 0 2px 12px 0 #dfe3eb;
+}
