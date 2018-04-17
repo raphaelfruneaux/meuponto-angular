@@ -27,14 +27,14 @@ export class AppLayoutComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.authService.getCurrentUser().subscribe(userDetails => {
-      if (!userDetails.emailVerified) {
-        this.toastr.warning('Your email is not verified!');
-      }
+    // this.authService.getCurrentUser().subscribe(userDetails => {
+    //   if (!userDetails.emailVerified) {
+    //     this.toastr.warning('Your email is not verified!');
+    //   }
 
-      if (!userDetails.displayName) {
-        this.toastr.info('Hey, tell us your name!', '', { data: { url: '/user/profile' }});
-      }
-    });
+    //   if (!userDetails.displayName) {
+    //     this.toastr.info('Hey, tell us your name!', '', { data: { url: '/user/profile' }});
+    //   }
+    // });
   }
 }

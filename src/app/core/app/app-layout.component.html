@@ -1,9 +1,29 @@
-<app-sidebar></app-sidebar>
-<app-header></app-header>
-
-
 <main class="main-content">
-  <div class="container">
-    <router-outlet></router-outlet>
+  <div class="left-content">
+    <div class="daily-summary">
+      <div class="user">
+        <div class="user-pic"></div>
+        <div class="user-name">Charles Lennon</div>
+        <input type="button" value="settings">
+      </div>
+      <div class="timer-register">
+        <input type="text" class="form-control" name="time-register" id="time-register" placeholder="__:__">
+        <span class="tip">Pressione ENTER para salvar</span>
+      </div>
+      <div class="timer-feedback">
+        <p><strong>Olá Charles,</strong> você ainda não registrou ponto hoje.</p>
+      </div>
+      <div class="timer-label">
+        <span class="timer-label-title">Horas Trabalhadas</span>
+        <span class="timer-label-content">10h 20min</span>
+      </div>
+      <div class="timer-label">
+        <span class="timer-label-title">Saída Sugerida</span>
+        <span class="timer-label-content">18h 16min</span>
+      </div>
+    </div>
+  </div>
+  <div class="right-content">
+    Aqui vai ficar o histórico/resumo de outros períodos e a timeline do dia
   </div>
 </main>
