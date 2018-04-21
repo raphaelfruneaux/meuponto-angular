@@ -115,21 +115,80 @@ main {
   width: calc(100% - 400px);
   left: $left_content_width;
   top: 0;
-  padding: 15px 30px;
-  .today {
-    .timeline {
-      &:before {
-        content: '';
-        width: 90%;
-        height: 2px;
-        background: #0a051c;
-        position: absolute;
-        top: 40px;
-        left: 50px;
+  .day-entries {
+    width: 100%;
+    position: absolute;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed #ececec;
+    .day-options {
+      display: inline-block;
+      padding: 20px 15px;
+      vertical-align: text-bottom;
+      margin-left: 15px;
+      color: #f3005b;
+    }
+    .day-info {
+      display: inline-block;
+      padding-right: 10px;
+      padding-left: 10px;
+      i {
+        margin-right: 5px;
       }
+      .day-info-title {
+        font-family: $secondary_font;
+        font-size: 30px;
+        margin-bottom: 0;
+        i {
+          font-size: 14px;
+          cursor: pointer;
+          vertical-align: middle;
+        }
+      }
+      .day-info-date {
+        font-size: 12px;
+      }
+    }
+    .timeline {
+      display: inline-block;
+      position: relative;
+      margin: 40px 0 0;
+      padding-left: 40px;
+      padding-top: 20px;
       .timeline-spot {
         display: inline-block;
-        margin-right: 50px;
+        margin-left: 80px;
+        &:first-of-type {
+          margin-left: 0;
+        }
+        &:before {
+          content: '';
+          height: 2px;
+          background: #eaeaea;
+          position: absolute;
+          top: 0;
+          width: 120px;
+          margin-left: -100px;
+        }
+        &:first-of-type:before {
+          display: none;
+        }
+        &:after {
+          content: '';
+          width: 15px;
+          height: 15px;
+          border: 2px solid #f99bbe;
+          background: #FFF;
+          position: absolute;
+          border-radius: 50px;
+          top: -7px;
+          z-index: 1;
+          margin-left: 20px;
+        }
+        .timeline-spot-title {
+          display: inline-block;
+          font-family: $secondary_font;
+          font-size: 14px;
+        }
       }
     }
   }

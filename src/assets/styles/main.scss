@@ -1,5 +1,6 @@
 @import "variables";
 
+@import "components/checkbox";
 @import "./theme/card";
 @import "./theme/form";
 
@@ -19,7 +20,7 @@ html {
 }
 
 body {
-  background: #ebeff5;
+  background: #FFF;
   font-family: $primary_font;
   font-size: 16px;
 }
