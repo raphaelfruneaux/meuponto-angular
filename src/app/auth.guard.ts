@@ -21,13 +21,13 @@ export class AuthGuard implements CanActivate {
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    // return this.auth.isAuthenticated().map(isAuthenticated => {
-    //   if (isAuthenticated) {
-    //     return true;
-    //   }
-    //   this.abortNavigate(state.url);
-    //   return false;
-    // });
-    return true;
+    return this.auth.isAuthenticated().map(isAuthenticated => {
+      if (isAuthenticated) {
+        return true;
+      }
+      this.abortNavigate(state.url);
+      return false;
+    });
+    // return true;
   }
 }
