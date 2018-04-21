@@ -117,7 +117,7 @@ main {
   top: 0;
   .day-entries {
     width: 100%;
-    position: absolute;
+    padding-top: 10px;
     padding-bottom: 20px;
     border-bottom: 1px dashed #ececec;
     .day-options {
@@ -146,6 +146,7 @@ main {
       }
       .day-info-date {
         font-size: 12px;
+        margin-bottom: 0;
       }
     }
     .timeline {
