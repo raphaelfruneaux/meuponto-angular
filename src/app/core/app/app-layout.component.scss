@@ -215,16 +215,32 @@ main {
         color: #FFF;
         width: 220px;
       }
+      &.season--positive {
+        i {
+          color: #26e473;
+        }
+      }
+      &.season--negative {
+        i {
+          color: #ad0000;
+        }
+      }
       .season-name {
         font-family: $secondary_font;
         font-weight: 400;
         font-size: 25px;
         padding-bottom: 5px;
         padding-top: 15px;
+        i {
+          font-size: 10px;
+          vertical-align: middle;
+          margin-right: 10px;
+        }
       }
       .season-period {
         padding-bottom: 25px;
         p {
+          font-style: italic;
           margin-bottom: 0;
         }
       }
