@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ToastsManager, Toast } from 'ng2-toastr';
 
 import { AuthService } from '../../auth/auth.service';
+import { UserService } from '../../user/user.service';
 
 @Component({
   selector: 'app-app-layout',
@@ -13,6 +14,7 @@ import { AuthService } from '../../auth/auth.service';
 export class AppLayoutComponent implements OnInit {
   constructor(
     private authService: AuthService,
+    private userService: UserService,
     private toastr: ToastsManager,
     private vcr: ViewContainerRef,
     private router: Router
@@ -27,14 +29,16 @@ export class AppLayoutComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.authService.getCurrentUser().subscribe(userDetails => {
-    //   if (!userDetails.emailVerified) {
-    //     this.toastr.warning('Your email is not verified!');
-    //   }
+    this.authService.getCurrentUser().subscribe(userDetails => {
+      console.log(userDetails);
+      this.userService.getDetails();
+      // if (!userDetails.emailVerified) {
+      //   this.toastr.warning('Your email is not verified!');
+      // }
 
-    //   if (!userDetails.displayName) {
-    //     this.toastr.info('Hey, tell us your name!', '', { data: { url: '/user/profile' }});
-    //   }
-    // });
+      // if (!userDetails.displayName) {
+      //   this.toastr.info('Hey, tell us your name!', '', { data: { url: '/user/profile' }});
+      // }
+    });
   }
 }
