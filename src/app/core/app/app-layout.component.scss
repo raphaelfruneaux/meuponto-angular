@@ -8,7 +8,7 @@ main {
 }
 
 .left-content {
-  width: 400px;
+  width: $left_content_width;
   height: 100%;
   overflow: auto;
   background: $color_one;
@@ -105,6 +105,31 @@ main {
         display: inline-block;
         font-weight: 100;
         color: $color_three;
+      }
+    }
+  }
+}
+
+.right-content {
+  position: absolute;
+  width: calc(100% - 400px);
+  left: $left_content_width;
+  top: 0;
+  padding: 15px 30px;
+  .today {
+    .timeline {
+      &:before {
+        content: '';
+        width: 90%;
+        height: 2px;
+        background: #0a051c;
+        position: absolute;
+        top: 40px;
+        left: 50px;
+      }
+      .timeline-spot {
+        display: inline-block;
+        margin-right: 50px;
       }
     }
   }
