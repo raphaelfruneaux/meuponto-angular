@@ -25,9 +25,15 @@
 			strong {
 				font-size: 30px;
 				display: block;
+				margin-bottom: 10px;
 			}
 			p {
 				margin-bottom: 0;
+			}
+			a {
+				display: block;
+				color: $color_one;
+				font-weight: bold;
 			}
 		}
 	}
