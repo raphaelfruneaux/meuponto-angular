@@ -3,7 +3,10 @@
     <div class="daily-summary">
       <div class="user">
         <div class="user-pic"></div>
-        <div class="user-name">Charles Lennon <i class="fas fa-chevron-down"></i></div>
+        <div class="user-name">
+          {{ (user | async)?.name }}
+           <i class="fas fa-chevron-down"></i>
+        </div>
         <div class="dropdown">
           <div class="dropdown-item"><a href="javascript:;">Minha conta</a></div>
           <div class="dropdown-item"><a href="javascript:;">Sair</a></div>

@@ -5,6 +5,7 @@ import { ToastsManager, Toast } from 'ng2-toastr';
 
 import { AuthService } from '../../auth/auth.service';
 import { UserService } from '../../user/user.service';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-app-layout',
@@ -12,6 +13,8 @@ import { UserService } from '../../user/user.service';
   styleUrls: ['./app-layout.component.scss']
 })
 export class AppLayoutComponent implements OnInit {
+  user: Observable<any>;
+
   constructor(
     private authService: AuthService,
     private userService: UserService,
@@ -30,8 +33,8 @@ export class AppLayoutComponent implements OnInit {
 
   ngOnInit(): void {
     this.authService.getCurrentUser().subscribe(userDetails => {
-      console.log(userDetails);
-      this.userService.getDetails();
+      this.user = this.userService.currentUser();
+      this.userService.todayEntry();
       // if (!userDetails.emailVerified) {
       //   this.toastr.warning('Your email is not verified!');
       // }

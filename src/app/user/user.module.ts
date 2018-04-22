@@ -11,8 +11,8 @@ const COMPONENTS = [ProfileComponent, ToolbarComponent];
 
 @NgModule({
   imports: [CommonModule, UserRoutingModule],
+  providers: [UserService],
   declarations: [COMPONENTS],
-  exports: [COMPONENTS],
-  providers: [UserService]
+  exports: [COMPONENTS]
 })
 export class UserModule {}
