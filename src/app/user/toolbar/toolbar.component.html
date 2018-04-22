@@ -4,8 +4,8 @@
         {{ (user | async)?.displayName || (user | async)?.email }}
       <i class="fas fa-chevron-down"></i>
       <div class="dropdown-menu" [ngClass]="{'show': showUserDropdown }">
-        <div class="dropdown-menu-item">Minha conta</div>
-        <div class="dropdown-menu-item">Sair</div>
+        <a class="dropdown-menu-item" routerLink="/user/profile" href="#">Minha conta</a>
+        <div class="dropdown-menu-item" (click)="logout()">Sair</div>
       </div>
     </div>
   </div>

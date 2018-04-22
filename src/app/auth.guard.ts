@@ -6,14 +6,14 @@ import {
   RouterStateSnapshot
 } from '@angular/router';
 
-import { AuthService } from './auth';
+import { AuthService, URL as AUTH_URL } from './auth';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
   constructor(private router: Router, private auth: AuthService) {}
 
   private abortNavigate(next?: string) {
-    this.router.navigate(['auth/sign-in'], {
+    this.router.navigate([AUTH_URL.LOGIN], {
       queryParams: {
         next: next
       }
