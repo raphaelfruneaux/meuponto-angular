@@ -13,6 +13,7 @@ main {
   overflow: auto;
   background: $color_one;
   color: $color_contrast;
+  overflow: auto;
 
   padding: 30px 50px;
   font-size: 13px;
@@ -115,6 +116,8 @@ main {
   width: calc(100% - 400px);
   left: $left_content_width;
   top: 0;
+  overflow: auto;
+  height: 100%;
   * {
     transition: all ease .2s;
   }
@@ -202,6 +205,7 @@ main {
   .seasons {
     background: #f5f5f5;
     font-size: 0;
+    text-align: center;
     .season {
       display: inline-block;
       width: 200px;
