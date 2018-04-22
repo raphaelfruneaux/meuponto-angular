@@ -1,7 +1,11 @@
 <div class="login-wrapper">
   <div class="left-content">
-    <h1>Login</h1>
-    <h2>Olá! Acesse o sistema com seu email</h2>
+    <img src="./assets/images/logo.png" alt="">
+    <div class="welcome">
+      <strong>Olá!</strong>
+      <p>Acesse o sistema com seu email</p>
+      <p>Caso ainda não possua cadastro, <a href="javascript:;">clique aqui.</a></p>
+    </div>
     <form name="userform" method="post" #formCtrl="ngForm">
       <div class="form-group">
         <label for="email">Email</label>
@@ -17,8 +21,8 @@
         <a class="forgot-password" routerLink="../request-password" href="#">Forgot Password?</a>
       </div>
 
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary btn-block" style="margin-bottom: 20px" (click)="signIn()" [disabled]="formCtrl.form.invalid">
+      <div class="form-group text-center">
+        <button type="submit" class="btn btn-primary" (click)="signIn()" [disabled]="formCtrl.form.invalid">
           Acessar
         </button>
       </div>

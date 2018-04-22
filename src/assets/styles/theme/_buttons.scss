@@ -1,0 +1,12 @@
+@import "../variables";
+
+.btn {
+	&.btn-primary {
+		background: $color_one;
+		border-radius: 50px;
+		border: none;
+		padding: 10px 45px;
+		font-size: 15px;
+		font-weight: 100;
+	}
+}
