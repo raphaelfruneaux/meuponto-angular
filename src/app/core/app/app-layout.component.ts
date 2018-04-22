@@ -1,4 +1,4 @@
-import { Component, ViewContainerRef, OnInit } from '@angular/core';
+import { Component, ViewContainerRef, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { ToastsManager, Toast } from 'ng2-toastr';
@@ -10,7 +10,8 @@ import { Observable } from 'rxjs/Observable';
 @Component({
   selector: 'app-app-layout',
   templateUrl: './app-layout.component.html',
-  styleUrls: ['./app-layout.component.scss']
+  styleUrls: ['./app-layout.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class AppLayoutComponent implements OnInit {
   constructor(
