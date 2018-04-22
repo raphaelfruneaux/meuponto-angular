@@ -1,0 +1,20 @@
+.dropdown {
+  .dropdown-menu {
+    background: white;
+    padding: 0;
+    text-align: center;
+    left: -14%;
+    border: 0;
+    border-radius: 5px;
+    overflow: hidden;
+    .dropdown-menu-item {
+      padding: 10px 20px;
+      color: #666;
+      font-weight: 400;
+      &:hover {
+        background: $color_one;
+        color: white;
+      }
+    }
+  }
+}

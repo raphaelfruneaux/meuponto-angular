@@ -13,8 +13,6 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./app-layout.component.scss']
 })
 export class AppLayoutComponent implements OnInit {
-  user: Observable<any>;
-
   constructor(
     private authService: AuthService,
     private userService: UserService,
@@ -33,7 +31,6 @@ export class AppLayoutComponent implements OnInit {
 
   ngOnInit(): void {
     this.authService.getCurrentUser().subscribe(userDetails => {
-      this.user = this.userService.currentUser();
       this.userService.todayEntry();
       // if (!userDetails.emailVerified) {
       //   this.toastr.warning('Your email is not verified!');

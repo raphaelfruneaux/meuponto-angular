@@ -1,33 +1,6 @@
 <main class="main-content">
   <div class="left-content">
-    <div class="daily-summary">
-      <div class="user">
-        <div class="user-pic"></div>
-        <div class="user-name dropdown" (click)="showUserDropdown = !showUserDropdown">
-            {{ (user | async)?.name }}
-          <i class="fas fa-chevron-down"></i>
-          <div class="dropdown-menu" [ngClass]="{'show': showUserDropdown }">
-            <div class="dropdown-menu-item">Minha conta</div>
-            <div class="dropdown-menu-item">Sair</div>
-          </div>
-        </div>
-      </div>
-      <div class="timer-register">
-        <input type="text" class="form-control" name="time-register" id="time-register" placeholder="00:00">
-        <span class="tip">Pressione ENTER para salvar</span>
-      </div>
-      <div class="timer-feedback">
-        <p><strong>Olá Charles,</strong> você ainda não registrou ponto hoje.</p>
-      </div>
-      <div class="timer-label">
-        <span class="timer-label-title">Horas trabalhadas</span>
-        <span class="timer-label-content">10:20</span>
-      </div>
-      <div class="timer-label">
-        <span class="timer-label-title">Saída sugerida</span>
-        <span class="timer-label-content">18:16</span>
-      </div>
-    </div>
+    <app-sidebar></app-sidebar>
   </div>
   <div class="right-content">
     <div class="day-entries">
