@@ -11,7 +11,7 @@ main {
   width: $left_content_width;
   height: 100%;
   overflow: auto;
-  background: $color_one;
+  background: $color_two;
   color: $color_contrast;
   overflow: auto;
 
@@ -32,7 +32,7 @@ main {
         background-image: url(/assets/images/me.jpg);
         background-size: cover;
         background-repeat: no-repeat;
-        border: 2px solid $color_two;
+        border: 2px solid $color_one;
       }
       .user-name {
         font-weight: 100;
@@ -53,14 +53,14 @@ main {
         font-size: 40px;
         width: 120px;
         border: none;
-        border-bottom: 2px solid $color_two;
+        border-bottom: 2px solid $color_one;
         border-radius: 0;
         box-shadow: none;
         margin: 0 auto;
         padding: 5px 10px;
         height: 60px;
         font-family: $secondary_font;
-        background: $color_one;
+        background: $color_two;
         color: $color_contrast;
         &:focus {
           height: 70px;
@@ -69,7 +69,7 @@ main {
       .tip {
         padding: 5px 10px;
         display: inline-block;
-        color: $color_two;
+        color: $color_one;
         font-size: 10px;
         letter-spacing: 1px;
         border-radius: 5px;
@@ -133,7 +133,7 @@ main {
       padding: 20px 15px;
       vertical-align: text-bottom;
       margin-left: 15px;
-      color: #f3005b;
+      color: $color_one;
     }
     .day-info {
       display: inline-block;
@@ -216,7 +216,7 @@ main {
       border-right: 1px solid #e4e4e4;
       cursor: pointer;
       &.season--selected {
-        background: $color_two;
+        background: $color_one;
         color: #FFF;
         width: 220px;
       }
@@ -261,6 +261,27 @@ main {
         box-shadow: none;
         border-bottom: 1px solid #e4e4e4;
         width: auto;
+      }
+    }
+  }
+}
+
+.dropdown {
+  .dropdown-menu {
+    background: white;
+    padding: 0;
+    text-align: center;
+    left: -14%;
+    border: 0;
+    border-radius: 5px;
+    overflow: hidden;
+    .dropdown-menu-item {
+      padding: 10px 20px;
+      color: #666;
+      font-weight: 400;
+      &:hover {
+        background: $color_one;
+        color: white;
       }
     }
   }

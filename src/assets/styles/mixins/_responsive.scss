@@ -1,0 +1,41 @@
+@mixin min-desktop-size {
+	@media(min-width: $min_desktop_size) {
+		@content;
+	}
+}
+
+@mixin min-desktop-size-and($query) {
+	@media(min-width: $min_desktop_size) and (#{$query}) {
+		@content;
+	}
+}
+
+@mixin max-mobile-size {
+	@media(max-width: $max_mobile_size) {
+		@content;
+	}
+}
+
+@mixin min-tablet-size {
+	@media(min-width: $min_tablet_size) {
+		@content;
+	}
+}
+
+@mixin min-tablet-size-and($query) {
+	@media(min-width: $min_tablet_size) and (#{$query}) {
+		@content;
+	}
+}
+
+@mixin max-tablet-size {
+	@media(max-width: $max_tablet_size) {
+		@content;
+	}
+}
+
+@mixin max-tablet-size-and($query) {
+	@media(max-width: $min_tablet_size) and (#{$query}) {
+		@content;
+	}
+}

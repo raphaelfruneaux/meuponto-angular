@@ -1,16 +1,8 @@
 .auth-container {
-  padding: 40px;
-  height: 100vh;
-
-  .card {
-    height: calc(100vh - 2 * 40px);
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .sign-content {
-    margin: auto;
-  }
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  background: #f5f7fa;
 }
 

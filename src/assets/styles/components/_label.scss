@@ -1,7 +1,9 @@
+@import "../variables";
+
 .label {
 	display: inline-block;
   color: white;
-  background: #f3005b;
+  background: $color_one;
   border-radius: 5px;
   padding: 3px 12px;
   font-size: 10px;

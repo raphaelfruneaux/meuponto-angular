@@ -1,25 +1,17 @@
+@import '../variables';
+
 .form-control {
-  display: block;
-  width: 100%;
-  height: initial;
-  padding: 12px 18px;
-
-  background-color: #fff;
-  background-clip: padding-box;
-
-  border: 2px solid #dadfe6;
-  border-radius: 6px;
-
-  color: #2a2a2a;
-  // color: #495057;
-
-  // font-size: 16px;
-  // font-family: 'Roboto';
-
-  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #666;
+  box-shadow: none;
+  border-radius: 0;
+  color: $color_two;
   &:focus {
-    box-shadow: none;
+    border-bottom: 1px solid $color_two;
+  }
+  &:-webkit-autofill {
+    background: transparent !important;
   }
 }
 

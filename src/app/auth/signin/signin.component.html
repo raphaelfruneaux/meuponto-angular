@@ -1,19 +1,15 @@
-<app-card>
-  <div class="sign-content col-xs-8 col-sm-6 col-md-4">
-    <h3 align="center">Login</h3>
-
-    <p class="form-text sub-title text-center">
-      Olá! Acesse o sistema com seu email
-    </p>
-
+<div class="login-wrapper">
+  <div class="left-content">
+    <h1>Login</h1>
+    <h2>Olá! Acesse o sistema com seu email</h2>
     <form name="userform" method="post" #formCtrl="ngForm">
       <div class="form-group">
-        <label class="sr-only" for="email">Email</label>
-        <input type="email" class="form-control" [(ngModel)]="email" name="email" placeholder="Email" required>
+        <label for="email">Email</label>
+        <input type="email" class="form-control" [(ngModel)]="email" name="email" placeholder="seu-email@email.com" required>
       </div>
 
       <div class="form-group">
-        <label class="sr-only" for="password">Senha</label>
+        <label for="password">Senha</label>
         <input type="password" class="form-control" [(ngModel)]="password" name="password" placeholder="Password" required>
       </div>
 
@@ -27,21 +23,6 @@
         </button>
       </div>
     </form>
-
-    <div class="links">
-      <!-- <small class="form-text">Or connect with:</small>
-      <div class="socials">
-        <a href="https://github.com/akveo/nebular" target="_blank" class="socicon-github with-icon"></a>
-        <a href="https://www.facebook.com/akveo/" target="_blank" class="socicon-facebook with-icon"></a>
-        <a href="https://twitter.com/akveo_inc" target="_blank" class="socicon-twitter with-icon"></a>
-      </div> -->
-
-      <small class="form-text">
-        Don't have an account?
-        <a routerLink="../sign-up" href="#">
-          <strong>Sign Up</strong>
-        </a>
-      </small>
-    </div>
   </div>
-</app-card>
+  <div class="right-content"></div>
+</div>

@@ -21,7 +21,7 @@ const routes: Routes = [
     path: '',
     component: AuthLayoutComponent,
     children: [{
-      path: 'auth',
+      path: '',
       loadChildren: 'app/auth/auth.module#AuthModule'
     }]
   },
