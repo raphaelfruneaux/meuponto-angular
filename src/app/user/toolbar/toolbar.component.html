@@ -1,12 +1,11 @@
-<div class="user-container" *ngIf="user">
-  <div class="user-info">
-    <div class="user-picture"></div>
-    <div class="user-name">{{ user.displayName || 'Olá' }}</div>
+<div class="user">
+    <div class="user-pic"></div>
+    <div class="user-name dropdown" (click)="showUserDropdown = !showUserDropdown">
+        {{ (user | async)?.displayName || (user | async)?.email }}
+      <i class="fas fa-chevron-down"></i>
+      <div class="dropdown-menu" [ngClass]="{'show': showUserDropdown }">
+        <a class="dropdown-menu-item" routerLink="/user/profile" href="#">Minha conta</a>
+        <div class="dropdown-menu-item" (click)="logout()">Sair</div>
+      </div>
+    </div>
   </div>
-  <ul class="user-nav">
-    <li class="item">
-      <a routerLink="/user/profile" href="#">Perfil</a>
-      <a href="javascript:;" (click)="logout()">Sair</a>
-    </li>
-  </ul>
-</div>

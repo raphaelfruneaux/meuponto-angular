@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+
+import { Observable } from 'rxjs/Observable';
+import { UserInfo } from 'firebase';
 
 import { AuthService } from '../../auth/auth.service';
-import { UserInfo } from 'firebase';
 
 @Component({
   selector: 'app-user-toolbar',
@@ -9,14 +11,12 @@ import { UserInfo } from 'firebase';
   styleUrls: ['./toolbar.component.scss']
 })
 export class ToolbarComponent implements OnInit {
-  public user: UserInfo;
+  public user: Observable<UserInfo>;
 
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
-    this.authService.getCurrentUser().subscribe(user => {
-      this.user = user;
-    });
+    this.user = this.authService.getCurrentUser();
   }
 
   logout() {

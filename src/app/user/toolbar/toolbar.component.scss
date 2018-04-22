@@ -1,0 +1,27 @@
+@import "../../../assets/styles/variables";
+@import "../../../assets/styles/mixins/animations";
+
+.user {
+  text-align: center;
+  .user-pic {
+    width: 100px;
+    height: 100px;
+    background: #d6d6d6;
+    border-radius: 50px;
+    margin: 0 auto;
+    background-image: url(/assets/images/me.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: 2px solid $color_one;
+  }
+  .user-name {
+    font-weight: 100;
+    font-size: 14px;
+    padding: 10px;
+    display: inline-block;
+    cursor: pointer;
+    i {
+      font-size: 10px;
+    }
+  }
+}

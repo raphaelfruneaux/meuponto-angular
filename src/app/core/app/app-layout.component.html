@@ -1,164 +1,40 @@
 <main class="main-content">
   <div class="left-content">
-    <div class="daily-summary">
-      <div class="user">
-        <div class="user-pic"></div>
-        <div class="user-name dropdown" (click)="showUserDropdown = !showUserDropdown">Charles Lennon <i class="fas fa-chevron-down"></i>
-          <div class="dropdown-menu" [ngClass]="{'show': showUserDropdown }">
-            <div class="dropdown-menu-item">Minha conta</div>
-            <div class="dropdown-menu-item">Sair</div>
-          </div>
-        </div>
-      </div>
-      <div class="timer-register">
-        <input type="text" class="form-control" name="time-register" id="time-register" placeholder="00:00">
-        <span class="tip">Pressione ENTER para salvar</span>
-      </div>
-      <div class="timer-feedback">
-        <p><strong>Olá Charles,</strong> você ainda não registrou ponto hoje.</p>
-      </div>
-      <div class="timer-label">
-        <span class="timer-label-title">Horas trabalhadas</span>
-        <span class="timer-label-content">10:20</span>
-      </div>
-      <div class="timer-label">
-        <span class="timer-label-title">Saída sugerida</span>
-        <span class="timer-label-content">18:16</span>
-      </div>
-    </div>
+    <app-sidebar></app-sidebar>
   </div>
   <div class="right-content">
-    <div class="day-entries">
-      <a href="javascript:;" class="day-options">
-        <i class="fas fa-ellipsis-v"></i>
-      </a>
-      <div class="day-info">
-        <p class="day-info-title">
-          Hoje
-        </p>
-        <p class="day-info-date">
-          <i class="far fa-calendar-alt"></i>
-          21 de Abril
-        </p>
-        <span class="day-info-type label">
-          Feriado
-        </span>
-      </div>
-      <div class="timeline">
-        <div class="timeline-spot">
-          <span class="timeline-spot-title"><i class="far fa-clock"></i> 09:00</span>
-          <!-- <span class="timeline-spot-subtitle"></span> -->
-        </div>
-        <div class="timeline-spot">
-          <span class="timeline-spot-title"><i class="far fa-clock"></i> 11:40</span>
-          <!-- <span class="timeline-spot-subtitle"></span> -->
-        </div>
-        <div class="timeline-spot">
-          <span class="timeline-spot-title"><i class="far fa-clock"></i> 12:31</span>
-          <!-- <span class="timeline-spot-subtitle"></span> -->
-        </div>
-      </div>
+    <div class="today">
+      <app-day-entry></app-day-entry>
     </div>
     <div class="seasons">
       <div class="season season--positive">
-        <div class="season-name"><i class="fas fa-circle"></i>Março</div>
+        <div class="season-name">
+          <i class="fas fa-circle"></i>Março</div>
         <div class="season-period">
           <p>16-fev ... 15-mar</p>
         </div>
       </div>
       <div class="season season--selected season--negative">
-        <div class="season-name"><i class="fas fa-circle"></i>Abril</div>
+        <div class="season-name">
+          <i class="fas fa-circle"></i>Abril</div>
         <div class="season-period">
           <p>16-mar ... 15-abr</p>
         </div>
       </div>
       <div class="season season--negative">
-        <div class="season-name"><i class="fas fa-circle"></i>Maio</div>
+        <div class="season-name">
+          <i class="fas fa-circle"></i>Maio</div>
         <div class="season-period">
           <p>16-abr ... 15-mai</p>
         </div>
       </div>
     </div>
     <div class="story">
-       <div class="summary">
-
-       </div>
-       <div class="entries">
-          <div class="day-entries">
-            <a href="javascript:;" class="day-options">
-              <i class="fas fa-ellipsis-v"></i>
-            </a>
-            <div class="day-info">
-              <p class="day-info-title">
-                21-04
-              </p>
-              <p class="day-info-date">
-                <i class="far fa-calendar-alt"></i>
-                Sábado
-              </p>
-              <span class="day-info-type label">
-                Feriado
-              </span>
-            </div>
-            <div class="timeline">
-              <div class="timeline-spot">
-                <span class="timeline-spot-title"><i class="far fa-clock"></i> 09:00</span>
-                <!-- <span class="timeline-spot-subtitle"></span> -->
-              </div>
-              <div class="timeline-spot">
-                <span class="timeline-spot-title"><i class="far fa-clock"></i> 11:40</span>
-                <!-- <span class="timeline-spot-subtitle"></span> -->
-              </div>
-              <div class="timeline-spot">
-                <span class="timeline-spot-title"><i class="far fa-clock"></i> 12:31</span>
-                <!-- <span class="timeline-spot-subtitle"></span> -->
-              </div>
-              <div class="timeline-spot">
-                <span class="timeline-spot-title"><i class="far fa-clock"></i> 12:31</span>
-                <!-- <span class="timeline-spot-subtitle"></span> -->
-              </div>
-              <div class="timeline-spot">
-                <span class="timeline-spot-title"><i class="far fa-clock"></i> 12:31</span>
-                <!-- <span class="timeline-spot-subtitle"></span> -->
-              </div>
-            </div>
-          </div>
-          <div class="day-entries">
-              <a href="javascript:;" class="day-options">
-                <i class="fas fa-ellipsis-v"></i>
-              </a>
-              <div class="day-info">
-                <p class="day-info-title">
-                  21-04
-                </p>
-                <p class="day-info-date">
-                  <i class="far fa-calendar-alt"></i>
-                  Sábado
-                </p>
-                <span class="day-info-type label">
-                  Feriado
-                </span>
-              </div>
-              <div class="timeline">
-                <div class="timeline-spot">
-                  <span class="timeline-spot-title"><i class="far fa-clock"></i> 09:00</span>
-                  <!-- <span class="timeline-spot-subtitle"></span> -->
-                </div>
-                <div class="timeline-spot">
-                  <span class="timeline-spot-title"><i class="far fa-clock"></i> 11:40</span>
-                  <!-- <span class="timeline-spot-subtitle"></span> -->
-                </div>
-                <div class="timeline-spot">
-                  <span class="timeline-spot-title"><i class="far fa-clock"></i> 12:31</span>
-                  <!-- <span class="timeline-spot-subtitle"></span> -->
-                </div>
-                <div class="timeline-spot">
-                  <span class="timeline-spot-title"><i class="far fa-clock"></i> 12:31</span>
-                  <!-- <span class="timeline-spot-subtitle"></span> -->
-                </div>
-              </div>
-            </div>
-       </div>
+      <div class="summary"></div>
+      <div class="entries">
+        <app-day-entry></app-day-entry>
+        <app-day-entry></app-day-entry>
+      </div>
     </div>
   </div>
 </main>

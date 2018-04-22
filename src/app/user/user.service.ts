@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs/Observable';
-import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
 import * as firebase from 'firebase/app';
 
 import { AuthService } from './../auth/auth.service';
@@ -9,8 +9,10 @@ import { AuthService } from './../auth/auth.service';
 @Injectable()
 export class UserService {
 
-  private endpoint = 'users';
-  private _user: firebase.User = null;
+  private endpoint = '/users';
+  private _authUser: firebase.User = null;
+  private _user: AngularFireObject<any>;
+  private user: Observable<any>;
 
   details: Observable<any>;
 
@@ -18,20 +20,38 @@ export class UserService {
     private db: AngularFireDatabase,
     private auth: AuthService
   ) {
-    if (!this._user) {
+    if (!this._authUser || !this._user) {
       this.auth.getCurrentUser().subscribe(user => {
-        this._user = user;
+        this._authUser = user;
+        this._user = this.db.object(`${this.endpoint}/${this._authUser.uid}`);
+        this.user = this._user.valueChanges();
       });
     }
   }
 
-  getCurrentUser(): firebase.User {
-    return this._user;
+  currentUser() {
+    return this._user.valueChanges();
   }
 
-  getDetails() {
-    this.details = this.db.object(`${this.endpoint}/${this._user.uid}`).valueChanges();
-    this.details.subscribe(data => {
+  authenticatedUser() {
+    return this._authUser;
+  }
+
+  entries() {
+    const entries = this.db.list(`${this.endpoint}/${this._authUser.uid}/registros`).valueChanges();
+    entries.subscribe(data => {
+      console.log(data);
+    });
+  }
+
+  todayEntry() {
+    const entries = this.db
+      .list(
+        `${this.endpoint}/${this._authUser.uid}/registros`,
+        ref => ref.orderByChild('date').equalTo('2018-04-22')
+      ).valueChanges();
+
+    entries.subscribe(data => {
       console.log(data);
     });
   }

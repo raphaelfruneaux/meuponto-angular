@@ -6,16 +6,21 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { CardComponent } from './card/card.component';
 
 import { UserModule } from '../user';
+import { TimelineComponent } from './timeline/timeline.component';
+import { DayEntryComponent } from './day-entry/day-entry.component';
 
-const COMPONENTS = [HeaderComponent, SidebarComponent, CardComponent];
+const COMPONENTS = [
+  HeaderComponent, SidebarComponent, CardComponent,
+  TimelineComponent, DayEntryComponent
+];
 
 @NgModule({
   imports: [
     CommonModule,
     UserModule
   ],
-  declarations: [COMPONENTS],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  declarations: [COMPONENTS],
   exports: [COMPONENTS]
 })
 export class SharedModule {}

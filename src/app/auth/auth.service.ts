@@ -6,6 +6,10 @@ import { Observable } from 'rxjs/Observable';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 
+export enum URL {
+  LOGIN = 'login'
+}
+
 @Injectable()
 export class AuthService {
   private _authState: Observable<firebase.User> = null;
@@ -56,7 +60,7 @@ export class AuthService {
 
   logout(): void {
     this._firebaseAuth.auth.signOut().then(() => {
-      this.router.navigate(['auth/sign-in']);
+      this.router.navigate([URL.LOGIN]);
     });
   }
 }

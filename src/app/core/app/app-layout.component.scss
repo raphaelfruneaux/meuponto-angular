@@ -20,95 +20,6 @@ main {
   * {
     transition: all ease .2s;
   }
-  .daily-summary {
-    .user {
-      text-align: center;
-      .user-pic {
-        width: 100px;
-        height: 100px;
-        background: #d6d6d6;
-        border-radius: 50px;
-        margin: 0 auto;
-        background-image: url(/assets/images/me.jpg);
-        background-size: cover;
-        background-repeat: no-repeat;
-        border: 2px solid $color_one;
-      }
-      .user-name {
-        font-weight: 100;
-        font-size: 14px;
-        padding: 10px;
-        display: inline-block;
-        cursor: pointer;
-        i {
-          font-size: 10px;
-        }
-      }
-    }
-    .timer-register {
-      padding: 20px 0;
-      text-align: center;
-      .form-control {
-        text-align: center;
-        font-size: 40px;
-        width: 120px;
-        border: none;
-        border-bottom: 2px solid $color_one;
-        border-radius: 0;
-        box-shadow: none;
-        margin: 0 auto;
-        padding: 5px 10px;
-        height: 60px;
-        font-family: $secondary_font;
-        background: $color_two;
-        color: $color_contrast;
-        &:focus {
-          height: 70px;
-        }
-      }
-      .tip {
-        padding: 5px 10px;
-        display: inline-block;
-        color: $color_one;
-        font-size: 10px;
-        letter-spacing: 1px;
-        border-radius: 5px;
-        margin: 5px 0;
-        font-weight: 100;
-      }
-    }
-    .timer-feedback {
-      font-size: 15px;
-      padding: 20px 0 10px;
-      margin-bottom: 15px;
-      color: #726b86;
-      border-bottom: 2px dashed #1d1531;
-      strong {
-        display: block;
-        font-size: 20px;
-      }
-    }
-    .timer-label {
-      width: 100%;
-      margin-bottom: 20px;
-      display: inline-block;
-      color: #726b86;
-      .timer-label-title {
-        display: block;
-        font-size: 15px;
-        color: #726b86;
-        font-weight: bold;
-      }
-      .timer-label-content {
-        font-size: 30px;
-        font-family: $secondary_font;
-        letter-spacing: 1px;
-        display: inline-block;
-        font-weight: 100;
-        color: $color_three;
-      }
-    }
-  }
 }
 
 .right-content {
@@ -121,86 +32,7 @@ main {
   * {
     transition: all ease .2s;
   }
-  .day-entries {
-    width: 100%;
-    padding-top: 20px;
-    padding-bottom: 30px;
-    // border-bottom: 1px dashed #ececec;
-    box-shadow: 0 2px 12px 0 #00000021;
-    position: relative;
-    .day-options {
-      display: inline-block;
-      padding: 20px 15px;
-      vertical-align: text-bottom;
-      margin-left: 15px;
-      color: $color_one;
-    }
-    .day-info {
-      display: inline-block;
-      padding-right: 10px;
-      padding-left: 10px;
-      i {
-        margin-right: 5px;
-      }
-      .day-info-title {
-        font-family: $secondary_font;
-        font-size: 30px;
-        margin-bottom: 0;
-        i {
-          font-size: 14px;
-          cursor: pointer;
-          vertical-align: middle;
-        }
-      }
-      .day-info-date {
-        font-size: 12px;
-        margin-bottom: 0;
-      }
-    }
-    .timeline {
-      display: inline-block;
-      position: relative;
-      margin: 40px 0 0;
-      padding-left: 40px;
-      padding-top: 20px;
-      .timeline-spot {
-        display: inline-block;
-        margin-left: 80px;
-        &:first-of-type {
-          margin-left: 0;
-        }
-        &:before {
-          content: '';
-          height: 2px;
-          background: #eaeaea;
-          position: absolute;
-          top: 0;
-          width: 120px;
-          margin-left: -100px;
-        }
-        &:first-of-type:before {
-          display: none;
-        }
-        &:after {
-          content: '';
-          width: 15px;
-          height: 15px;
-          border: 2px solid #f99bbe;
-          background: #FFF;
-          position: absolute;
-          border-radius: 50px;
-          top: -7px;
-          z-index: 1;
-          margin-left: 20px;
-        }
-        .timeline-spot-title {
-          display: inline-block;
-          font-family: $secondary_font;
-          font-size: 14px;
-        }
-      }
-    }
-  }
+
 
   .seasons {
     background: #f5f5f5;
@@ -266,23 +98,9 @@ main {
   }
 }
 
-.dropdown {
-  .dropdown-menu {
-    background: white;
-    padding: 0;
-    text-align: center;
-    left: -14%;
-    border: 0;
-    border-radius: 5px;
-    overflow: hidden;
-    .dropdown-menu-item {
-      padding: 10px 20px;
-      color: #666;
-      font-weight: 400;
-      &:hover {
-        background: $color_one;
-        color: white;
-      }
-    }
+
+.today {
+  .day-entries {
+    box-shadow: 0 2px 12px 0 #00000021;
   }
 }

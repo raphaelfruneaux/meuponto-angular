@@ -1,15 +1,17 @@
-import { Component, ViewContainerRef, OnInit } from '@angular/core';
+import { Component, ViewContainerRef, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { ToastsManager, Toast } from 'ng2-toastr';
 
 import { AuthService } from '../../auth/auth.service';
 import { UserService } from '../../user/user.service';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-app-layout',
   templateUrl: './app-layout.component.html',
-  styleUrls: ['./app-layout.component.scss']
+  styleUrls: ['./app-layout.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class AppLayoutComponent implements OnInit {
   constructor(
@@ -30,8 +32,7 @@ export class AppLayoutComponent implements OnInit {
 
   ngOnInit(): void {
     this.authService.getCurrentUser().subscribe(userDetails => {
-      console.log(userDetails);
-      this.userService.getDetails();
+      this.userService.todayEntry();
       // if (!userDetails.emailVerified) {
       //   this.toastr.warning('Your email is not verified!');
       // }
