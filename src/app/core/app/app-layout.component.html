@@ -3,8 +3,8 @@
     <div class="daily-summary">
       <div class="user">
         <div class="user-pic"></div>
-        <div class="user-name dropdown">Charles Lennon <i class="fas fa-chevron-down"></i>
-          <div class="dropdown-menu show">
+        <div class="user-name dropdown" (click)="showUserDropdown = !showUserDropdown">Charles Lennon <i class="fas fa-chevron-down"></i>
+          <div class="dropdown-menu" [ngClass]="{'show': showUserDropdown }">
             <div class="dropdown-menu-item">Minha conta</div>
             <div class="dropdown-menu-item">Sair</div>
           </div>
