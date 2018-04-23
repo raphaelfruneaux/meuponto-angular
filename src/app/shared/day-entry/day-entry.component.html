@@ -4,29 +4,15 @@
   </a>
   <div class="day-info">
     <p class="day-info-title">
-      Hoje
+      {{ isToday() ? 'Hoje' : (entry | async)?.date | date:'dd MMMM, yyyy' }}
     </p>
     <p class="day-info-date">
       <i class="far fa-calendar-alt"></i>
-      21 de Abril
+      {{ (entry | async)?.date | date:'EEEE'}}
     </p>
-    <span class="day-info-type label">
-      Feriado
+    <span class="day-info-type label" *ngIf="isHoliday() || isWeekend()">
+      {{ isHoliday() ? 'Feriado' : 'Descanso' }}
     </span>
   </div>
   <app-timeline [entry]="entry"></app-timeline>
-  <!-- <div class="timeline">
-    <div class="timeline-spot">
-      <span class="timeline-spot-title"><i class="far fa-clock"></i> 09:00</span>
-    </div>
-    <div class="timeline-spot">
-      <span class="timeline-spot-title"><i class="far fa-clock"></i> 11:40</span>
-    </div>
-    <div class="timeline-spot">
-      <span class="timeline-spot-title"><i class="far fa-clock"></i> 12:31</span>
-    </div>
-  </div> -->
 </div>
-
-
-<pre>{{ entry | async | json }}</pre>

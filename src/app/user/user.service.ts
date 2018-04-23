@@ -45,17 +45,14 @@ export class UserService {
   }
 
   todayEntry(): Observable<DayEntry> {
-    const today = new Date();
+    const date = new Date();
+    const today = date.toISOString().match(/\d{4}-\d{2}-\d{2}/).join('-');
 
-    const year = today.getFullYear().toString();
-    const _month = today.getMonth() + 1;
-    const month = (_month) < 10 ? `0${_month}` : _month;
-    const day = today.getDate().toString();
 
     const todayEntry$ = this.db
       .list(
         `${this.endpoint}/${this._authUser.uid}/registros`,
-        ref => ref.orderByChild('date').equalTo(`${year}-${month}-${day}`)
+        ref => ref.orderByChild('date').equalTo(today)
       ).valueChanges();
 
     return Observable.create(observer => {
