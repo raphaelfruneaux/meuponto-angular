@@ -1,5 +1,3 @@
 <div class="timeline">
-  <app-timespot></app-timespot>
-  <app-timespot></app-timespot>
-  <app-timespot></app-timespot>
+  <app-timespot [spot]="spot" [entry]="entry" *ngFor="let spot of (entry|async)?.pontos"></app-timespot>
 </div>

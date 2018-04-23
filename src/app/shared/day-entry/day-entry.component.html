@@ -14,7 +14,7 @@
       Feriado
     </span>
   </div>
-  <app-timeline></app-timeline>
+  <app-timeline [entry]="entry"></app-timeline>
   <!-- <div class="timeline">
     <div class="timeline-spot">
       <span class="timeline-spot-title"><i class="far fa-clock"></i> 09:00</span>
@@ -27,3 +27,6 @@
     </div>
   </div> -->
 </div>
+
+
+<pre>{{ entry | async | json }}</pre>

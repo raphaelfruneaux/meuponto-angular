@@ -5,6 +5,7 @@ import { AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
 import * as firebase from 'firebase/app';
 
 import { AuthService } from './../auth/auth.service';
+import { DayEntry } from './../shared/day-entry/day-entry.interface';
 
 @Injectable()
 export class UserService {
@@ -38,21 +39,37 @@ export class UserService {
   }
 
   entries() {
-    const entries = this.db.list(`${this.endpoint}/${this._authUser.uid}/registros`).valueChanges();
-    entries.subscribe(data => {
-      console.log(data);
-    });
+    return this.db
+      .list(`${this.endpoint}/${this._authUser.uid}/registros`)
+      .valueChanges();
   }
 
-  todayEntry() {
-    const entries = this.db
+  todayEntry(): Observable<DayEntry> {
+    const today = new Date();
+
+    const year = today.getFullYear().toString();
+    const _month = today.getMonth() + 1;
+    const month = (_month) < 10 ? `0${_month}` : _month;
+    const day = today.getDate().toString();
+
+    const todayEntry$ = this.db
       .list(
         `${this.endpoint}/${this._authUser.uid}/registros`,
-        ref => ref.orderByChild('date').equalTo('2018-04-22')
+        ref => ref.orderByChild('date').equalTo(`${year}-${month}-${day}`)
       ).valueChanges();
 
-    entries.subscribe(data => {
-      console.log(data);
+    return Observable.create(observer => {
+      todayEntry$.subscribe(data => {
+        if (!data || data.length < 1) {
+          Observable.throw('no content');
+          return;
+        }
+        observer.next(data[0] as DayEntry);
+        observer.complete();
+      }, error => {
+        observer.error(error);
+        observer.complete();
+      });
     });
   }
 

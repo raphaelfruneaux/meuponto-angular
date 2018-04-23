@@ -1,4 +1,8 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
+
+import { Observable } from 'rxjs/Observable';
+
+import { DayEntry } from '../../day-entry/day-entry.interface';
 
 @Component({
   selector: 'app-timespot',
@@ -8,9 +12,11 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class TimespotComponent implements OnInit {
 
+  @Input() entry: Observable<DayEntry>;
+  @Input() spot;
+
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }

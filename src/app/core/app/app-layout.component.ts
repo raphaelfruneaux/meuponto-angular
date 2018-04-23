@@ -1,11 +1,12 @@
 import { Component, ViewContainerRef, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { Observable } from 'rxjs/Observable';
 import { ToastsManager, Toast } from 'ng2-toastr';
 
 import { AuthService } from '../../auth/auth.service';
 import { UserService } from '../../user/user.service';
-import { Observable } from 'rxjs/Observable';
+import { DayEntry } from '../../shared/day-entry/day-entry.interface';
 
 @Component({
   selector: 'app-app-layout',
@@ -14,6 +15,9 @@ import { Observable } from 'rxjs/Observable';
   encapsulation: ViewEncapsulation.None
 })
 export class AppLayoutComponent implements OnInit {
+
+  todayEntry: Observable<DayEntry>;
+
   constructor(
     private authService: AuthService,
     private userService: UserService,
@@ -31,8 +35,9 @@ export class AppLayoutComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.authService.getCurrentUser().subscribe(userDetails => {
-      this.userService.todayEntry();
+    this.todayEntry = this.userService.todayEntry();
+
+    // this.authService.getCurrentUser().subscribe(userDetails => {
       // if (!userDetails.emailVerified) {
       //   this.toastr.warning('Your email is not verified!');
       // }
@@ -40,6 +45,6 @@ export class AppLayoutComponent implements OnInit {
       // if (!userDetails.displayName) {
       //   this.toastr.info('Hey, tell us your name!', '', { data: { url: '/user/profile' }});
       // }
-    });
+    // });
   }
 }
