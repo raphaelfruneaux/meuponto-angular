@@ -15,6 +15,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { MomentModule } from 'ngx-moment';
 
 import { environment } from './../environments/environment';
 
@@ -41,6 +42,7 @@ export class ToastCustomOptions extends ToastOptions {
     AppRoutingModule,
     ToastModule.forRoot(),
     NgbModule.forRoot(),
+    MomentModule,
     AngularFireModule.initializeApp(environment.firebase, 'meuponto'),
     AngularFireAuthModule,
     AngularFirestoreModule,
