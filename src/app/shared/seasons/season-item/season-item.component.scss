@@ -1,0 +1,51 @@
+@import "../../../../assets/styles/variables";
+@import "../../../../assets/styles/mixins/animations";
+
+.season {
+  display: inline-block;
+  width: 200px;
+  text-align: center;
+  color: #666;
+  font-weight: 100;
+  font-size: 15px;
+  border-right: 1px solid #e4e4e4;
+  cursor: pointer;
+  &:hover {
+    background: rgba(0, 0, 0, .05);
+  }
+  &.season--selected {
+    background: $color_one;
+    color: #FFF;
+    width: 220px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, .3);
+  }
+  &.season--positive {
+    i {
+      color: #26e473;
+    }
+  }
+  &.season--negative {
+    i {
+      color: #ad0000;
+    }
+  }
+  .season-name {
+    font-family: $secondary_font;
+    font-weight: 400;
+    font-size: 25px;
+    padding-bottom: 5px;
+    padding-top: 15px;
+    i {
+      font-size: 10px;
+      vertical-align: middle;
+      margin-right: 10px;
+    }
+  }
+  .season-period {
+    padding-bottom: 25px;
+    p {
+      font-style: italic;
+      margin-bottom: 0;
+    }
+  }
+}

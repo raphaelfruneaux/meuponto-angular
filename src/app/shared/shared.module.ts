@@ -9,10 +9,12 @@ import { UserModule } from '../user';
 import { TimelineComponent } from './timeline/timeline.component';
 import { DayEntryComponent } from './day-entry/day-entry.component';
 import { TimespotComponent } from './timeline/timespot/timespot.component';
+import { SeasonsComponent } from './seasons/seasons.component';
+import { SeasonItemComponent } from './seasons/season-item/season-item.component';
 
 const COMPONENTS = [
   HeaderComponent, SidebarComponent, CardComponent,
-  DayEntryComponent,
+  DayEntryComponent, SeasonsComponent, SeasonItemComponent,
   TimelineComponent, TimespotComponent
 ];
 
