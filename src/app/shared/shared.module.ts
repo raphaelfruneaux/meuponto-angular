@@ -8,10 +8,12 @@ import { CardComponent } from './card/card.component';
 import { UserModule } from '../user';
 import { TimelineComponent } from './timeline/timeline.component';
 import { DayEntryComponent } from './day-entry/day-entry.component';
+import { TimespotComponent } from './timeline/timespot/timespot.component';
 
 const COMPONENTS = [
   HeaderComponent, SidebarComponent, CardComponent,
-  TimelineComponent, DayEntryComponent
+  DayEntryComponent,
+  TimelineComponent, TimespotComponent
 ];
 
 @NgModule({

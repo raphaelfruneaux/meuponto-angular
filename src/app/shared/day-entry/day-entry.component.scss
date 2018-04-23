@@ -36,47 +36,47 @@
       margin-bottom: 0;
     }
   }
-  .timeline {
-    display: inline-block;
-    position: relative;
-    margin: 40px 0 0;
-    padding-left: 40px;
-    padding-top: 20px;
-    .timeline-spot {
-      display: inline-block;
-      margin-left: 80px;
-      &:first-of-type {
-        margin-left: 0;
-      }
-      &:before {
-        content: '';
-        height: 2px;
-        background: #eaeaea;
-        position: absolute;
-        top: 0;
-        width: 120px;
-        margin-left: -100px;
-      }
-      &:first-of-type:before {
-        display: none;
-      }
-      &:after {
-        content: '';
-        width: 15px;
-        height: 15px;
-        border: 2px solid #f99bbe;
-        background: #FFF;
-        position: absolute;
-        border-radius: 50px;
-        top: -7px;
-        z-index: 1;
-        margin-left: 20px;
-      }
-      .timeline-spot-title {
-        display: inline-block;
-        font-family: $secondary_font;
-        font-size: 14px;
-      }
-    }
-  }
+  // .timeline {
+  //   display: inline-block;
+  //   position: relative;
+  //   margin: 40px 0 0;
+  //   padding-left: 40px;
+  //   padding-top: 20px;
+  //   .timeline-spot {
+  //     display: inline-block;
+  //     margin-left: 80px;
+  //     &:first-of-type {
+  //       margin-left: 0;
+  //     }
+  //     &:before {
+  //       content: '';
+  //       height: 2px;
+  //       background: #eaeaea;
+  //       position: absolute;
+  //       top: 0;
+  //       width: 120px;
+  //       margin-left: -100px;
+  //     }
+  //     &:first-of-type:before {
+  //       display: none;
+  //     }
+  //     &:after {
+  //       content: '';
+  //       width: 15px;
+  //       height: 15px;
+  //       border: 2px solid #f99bbe;
+  //       background: #FFF;
+  //       position: absolute;
+  //       border-radius: 50px;
+  //       top: -7px;
+  //       z-index: 1;
+  //       margin-left: 20px;
+  //     }
+  //     .timeline-spot-title {
+  //       display: inline-block;
+  //       font-family: $secondary_font;
+  //       font-size: 14px;
+  //     }
+  //   }
+  // }
 }
