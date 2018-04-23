@@ -9,7 +9,6 @@ import { DayEntry } from './../shared/day-entry/day-entry.interface';
 
 @Injectable()
 export class UserService {
-
   private endpoint = '/users';
   private _authUser: firebase.User = null;
   private _user: AngularFireObject<any>;
@@ -17,15 +16,14 @@ export class UserService {
 
   details: Observable<any>;
 
-  constructor(
-    private db: AngularFireDatabase,
-    private auth: AuthService
-  ) {
+  constructor(private db: AngularFireDatabase, private auth: AuthService) {
     if (!this._authUser || !this._user) {
       this.auth.getCurrentUser().subscribe(user => {
-        this._authUser = user;
-        this._user = this.db.object(`${this.endpoint}/${this._authUser.uid}`);
-        this.user = this._user.valueChanges();
+        if (user) {
+          this._authUser = user;
+          this._user = this.db.object(`${this.endpoint}/${this._authUser.uid}`);
+          this.user = this._user.valueChanges();
+        }
       });
     }
   }
@@ -46,28 +44,32 @@ export class UserService {
 
   todayEntry(): Observable<DayEntry> {
     const date = new Date();
-    const today = date.toISOString().match(/\d{4}-\d{2}-\d{2}/).join('-');
-
+    const today = date
+      .toISOString()
+      .match(/\d{4}-\d{2}-\d{2}/)
+      .join('-');
 
     const todayEntry$ = this.db
-      .list(
-        `${this.endpoint}/${this._authUser.uid}/registros`,
-        ref => ref.orderByChild('date').equalTo(today)
-      ).valueChanges();
+      .list(`${this.endpoint}/${this._authUser.uid}/registros`, ref =>
+        ref.orderByChild('date').equalTo(today)
+      )
+      .valueChanges();
 
     return Observable.create(observer => {
-      todayEntry$.subscribe(data => {
-        if (!data || data.length < 1) {
-          Observable.throw('no content');
-          return;
+      todayEntry$.subscribe(
+        data => {
+          if (!data || data.length < 1) {
+            Observable.throw('no content');
+            return;
+          }
+          observer.next(data[0] as DayEntry);
+          observer.complete();
+        },
+        error => {
+          observer.error(error);
+          observer.complete();
         }
-        observer.next(data[0] as DayEntry);
-        observer.complete();
-      }, error => {
-        observer.error(error);
-        observer.complete();
-      });
+      );
     });
   }
-
 }

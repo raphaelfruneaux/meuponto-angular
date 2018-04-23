@@ -2,36 +2,17 @@
   <div class="left-content">
     <app-sidebar></app-sidebar>
   </div>
+
   <div class="right-content">
     <div class="today">
       <app-day-entry [entry]="todayEntry" [today]="true"></app-day-entry>
     </div>
+
     <app-seasons></app-seasons>
-    <!-- <div class="seasons">
-      <div class="season season--positive">
-        <div class="season-name">
-          <i class="fas fa-circle"></i>Março</div>
-        <div class="season-period">
-          <p>16-fev ... 15-mar</p>
-        </div>
-      </div>
-      <div class="season season--selected season--negative">
-        <div class="season-name">
-          <i class="fas fa-circle"></i>Abril</div>
-        <div class="season-period">
-          <p>16-mar ... 15-abr</p>
-        </div>
-      </div>
-      <div class="season season--negative">
-        <div class="season-name">
-          <i class="fas fa-circle"></i>Maio</div>
-        <div class="season-period">
-          <p>16-abr ... 15-mai</p>
-        </div>
-      </div>
-    </div> -->
+
     <div class="story">
       <div class="summary"></div>
+
       <div class="entries">
         <app-day-entry></app-day-entry>
         <app-day-entry></app-day-entry>

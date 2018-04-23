@@ -1,4 +1,4 @@
-import { Component, ViewContainerRef, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, ViewContainerRef, OnInit, ViewEncapsulation, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Observable } from 'rxjs/Observable';
@@ -14,7 +14,7 @@ import { DayEntry } from '../../shared/day-entry/day-entry.interface';
   styleUrls: ['./app-layout.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class AppLayoutComponent implements OnInit {
+export class AppLayoutComponent implements OnInit, OnDestroy {
 
   todayEntry: Observable<DayEntry>;
 
@@ -36,15 +36,9 @@ export class AppLayoutComponent implements OnInit {
 
   ngOnInit(): void {
     this.todayEntry = this.userService.todayEntry();
+  }
 
-    // this.authService.getCurrentUser().subscribe(userDetails => {
-      // if (!userDetails.emailVerified) {
-      //   this.toastr.warning('Your email is not verified!');
-      // }
-
-      // if (!userDetails.displayName) {
-      //   this.toastr.info('Hey, tell us your name!', '', { data: { url: '/user/profile' }});
-      // }
-    // });
+  ngOnDestroy(): void {
+    console.log('destroy: app layout');
   }
 }
