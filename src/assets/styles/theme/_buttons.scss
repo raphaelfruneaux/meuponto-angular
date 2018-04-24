@@ -9,5 +9,8 @@
 		font-size: 15px;
 		font-weight: 100;
 		box-shadow: 0 2px 16px #71002b75;
+		&:focus, &:hover {
+			background: darken($color: $color_one, $amount: 5%);
+		}
 	}
 }
