@@ -49,7 +49,6 @@ export class SeasonService {
         this.seasons.push(season);
       }
     });
-    console.log(this.seasons);
   }
 
   createSeason(entry: DayEntry, period?: SeasonPeriod): Season {
