@@ -10,6 +10,7 @@ import { DayEntry } from './../shared/day-entry/day-entry.interface';
 @Injectable()
 export class UserService {
   private endpoint = '/users';
+  private _date: Date;
   private _authUser: firebase.User = null;
   private _user: AngularFireObject<any>;
   private user: Observable<any>;
@@ -17,6 +18,7 @@ export class UserService {
   details: Observable<any>;
 
   constructor(private db: AngularFireDatabase, private auth: AuthService) {
+    this._date = new Date();
     if (!this._authUser || !this._user) {
       this.auth.getCurrentUser().subscribe(user => {
         if (user) {
@@ -26,6 +28,15 @@ export class UserService {
         }
       });
     }
+  }
+
+  private get date (): string {
+    const day = this._date.getDate();
+    const year = this._date.getFullYear();
+    const _month = this._date.getMonth() + 1;
+    const month = _month < 10 ? `0${_month}` : _month;
+
+    return `${year}-${month}-${day}`;
   }
 
   currentUser() {
@@ -43,15 +54,9 @@ export class UserService {
   }
 
   todayEntry(): Observable<DayEntry> {
-    const date = new Date();
-    const today = date
-      .toISOString()
-      .match(/\d{4}-\d{2}-\d{2}/)
-      .join('-');
-
     const todayEntry$ = this.db
       .list(`${this.endpoint}/${this._authUser.uid}/registros`, ref =>
-        ref.orderByChild('date').equalTo(today)
+        ref.orderByChild('date').equalTo(this.date)
       )
       .valueChanges();
 
