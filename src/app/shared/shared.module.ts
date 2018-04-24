@@ -9,6 +9,8 @@ import { UserModule } from '../user';
 import { TimelineComponent } from './timeline/timeline.component';
 import { DayEntryComponent } from './day-entry/day-entry.component';
 import { TimespotComponent } from './timeline/timespot/timespot.component';
+
+import { SeasonService } from './seasons/season.service';
 import { SeasonsComponent } from './seasons/seasons.component';
 import { SeasonItemComponent } from './seasons/season-item/season-item.component';
 
@@ -23,6 +25,7 @@ const COMPONENTS = [
     CommonModule,
     UserModule
   ],
+  providers: [SeasonService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [COMPONENTS],
   exports: [COMPONENTS]

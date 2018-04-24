@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { SeasonService } from './season.service';
 
 @Component({
   selector: 'app-seasons',
@@ -7,7 +8,9 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 })
 export class SeasonsComponent implements OnInit, OnDestroy {
 
-  constructor() {}
+  constructor(
+    private seasonService: SeasonService
+  ) {}
 
   ngOnInit(): void {}
 
