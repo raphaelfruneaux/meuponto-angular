@@ -7,6 +7,7 @@ import { ToastsManager, Toast } from 'ng2-toastr';
 import { AuthService } from '../../auth/auth.service';
 import { UserService } from '../../user/user.service';
 import { DayEntry } from '../../shared/day-entry/day-entry.interface';
+import { Season } from '../../shared/seasons/season.interface';
 
 @Component({
   selector: 'app-app-layout',
@@ -17,6 +18,8 @@ import { DayEntry } from '../../shared/day-entry/day-entry.interface';
 export class AppLayoutComponent implements OnInit, OnDestroy {
 
   todayEntry: Observable<DayEntry>;
+  season: Season;
+  date: string;
 
   constructor(
     private authService: AuthService,
@@ -40,5 +43,9 @@ export class AppLayoutComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     console.log('destroy: app layout');
+  }
+
+  seasonSelected(season: Season): void {
+    this.season = season;
   }
 }

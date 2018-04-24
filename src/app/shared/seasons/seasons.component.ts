@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Output, EventEmitter, Input } from '@angular/core';
 import { SeasonService } from './season.service';
 import { Season } from './season.interface';
 
@@ -9,6 +9,8 @@ import { Season } from './season.interface';
 })
 export class SeasonsComponent implements OnInit, OnDestroy {
 
+  @Input() initialDatePrefix: string;
+  @Output() whenSelected = new EventEmitter();
   seasons: Season[] = [];
 
   constructor(
@@ -17,9 +19,15 @@ export class SeasonsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.seasons = this.seasonService.getAll();
+    console.log(this.initialDatePrefix);
   }
 
   ngOnDestroy(): void {
     console.log('destroy: sesons');
+  }
+
+  handleClick(season: Season): void {
+    console.log('season item has been clicked!');
+    this.whenSelected.emit(season);
   }
 }

@@ -8,14 +8,15 @@
       <app-day-entry [entry]="todayEntry" [today]="true"></app-day-entry>
     </div>
 
-    <app-seasons></app-seasons>
+    <app-seasons
+      [initialDatePrefix]="(todayEntry|async)?.datePrefix"
+      (whenSelected)="seasonSelected($event);"
+      ></app-seasons>
 
     <div class="story">
       <div class="summary"></div>
-
       <div class="entries">
-        <app-day-entry></app-day-entry>
-        <app-day-entry></app-day-entry>
+        <app-day-entry [entry]="entry" *ngFor="let entry of season?.entries"></app-day-entry>
       </div>
     </div>
   </div>

@@ -30,7 +30,7 @@ export class UserService {
     }
   }
 
-  private get date (): string {
+  public get date (): string {
     const day = this._date.getDate();
     const year = this._date.getFullYear();
     const _month = this._date.getMonth() + 1;
@@ -64,7 +64,7 @@ export class UserService {
       todayEntry$.subscribe(
         data => {
           if (!data || data.length < 1) {
-            Observable.throw('no content');
+            Observable.of();
             return;
           }
           observer.next(data[0] as DayEntry);

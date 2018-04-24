@@ -1,3 +1,6 @@
 <div class="seasons">
-  <app-season-item [season]="season" *ngFor="let season of seasons"></app-season-item>
+  <app-season-item *ngFor="let season of seasons"
+    [season]="season"
+    (click)="handleClick(season)"
+    ></app-season-item>
 </div>

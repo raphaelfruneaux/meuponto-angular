@@ -56,7 +56,7 @@ export class SeasonService {
     const season: Season = {
       date: new Date(
         entry.dateEntry.getUTCFullYear(),
-        entry.dateEntry.getMonth() + 1,
+        entry.dateEntry.getMonth(),
         1
       ),
       datePrefix: entry.datePrefix,
