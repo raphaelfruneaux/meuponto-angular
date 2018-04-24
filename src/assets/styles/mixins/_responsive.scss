@@ -1,5 +1,5 @@
 @mixin min-desktop-size {
-	@media(min-width: $min_desktop_size) {
+	@media(min-width: $min_desktop_size) and (min-height: $min-desktop-height) {
 		@content;
 	}
 }
