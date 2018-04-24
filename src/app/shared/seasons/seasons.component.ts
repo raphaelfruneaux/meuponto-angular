@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { SeasonService } from './season.service';
+import { Season } from './season.interface';
 
 @Component({
   selector: 'app-seasons',
@@ -8,11 +9,15 @@ import { SeasonService } from './season.service';
 })
 export class SeasonsComponent implements OnInit, OnDestroy {
 
+  seasons: Season[] = [];
+
   constructor(
     private seasonService: SeasonService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.seasons = this.seasonService.getAll();
+  }
 
   ngOnDestroy(): void {
     console.log('destroy: sesons');
