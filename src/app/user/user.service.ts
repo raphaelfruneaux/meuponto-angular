@@ -64,10 +64,19 @@ export class UserService {
       todayEntry$.subscribe(
         data => {
           if (!data || data.length < 1) {
+            // must create a today entry
             Observable.of();
             return;
           }
-          observer.next(data[0] as DayEntry);
+          const entry = data[0] as DayEntry;
+          entry.dateEntry = new Date(entry.date.replace(/-/g,'/'));
+
+          const _month = entry.dateEntry.getMonth() + 1;
+          const month = _month < 10 ? `0${_month}` : _month;
+
+          entry.datePrefix = `${entry.dateEntry.getFullYear()}-${month}`;
+
+          observer.next(entry);
           observer.complete();
         },
         error => {

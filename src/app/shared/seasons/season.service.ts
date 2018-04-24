@@ -29,16 +29,26 @@ export class SeasonService {
     });
   }
 
-  getAll() {
+  getAll(): Season[] {
     return this.seasons;
+  }
+
+  getAllObservables(): Observable<Season[]> {
+    return Observable.create(observer => {
+      observer.next(this.seasons);
+      observer.complete();
+    });
   }
 
   loadSeasons() {
     const date = new Date();
     this.entries.forEach((entry: DayEntry) => {
       entry.dateEntry = new Date(entry.date.replace(/-/g, '/'));
-      entry.datePrefix = `${entry.dateEntry.getFullYear()}-${entry.dateEntry.getMonth() +
-        1}`;
+
+      const _month = entry.dateEntry.getMonth() + 1;
+      const month = _month < 10 ? `0${_month}` : _month;
+
+      entry.datePrefix = `${entry.dateEntry.getFullYear()}-${month}`;
 
       const hasEntry = !!this.seasons.filter((season: Season) => {
         return season.datePrefix === entry.datePrefix;

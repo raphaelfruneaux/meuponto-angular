@@ -17,9 +17,9 @@ import { Season } from '../../shared/seasons/season.interface';
 })
 export class AppLayoutComponent implements OnInit, OnDestroy {
 
+  initialDatePrfix: string;
   todayEntry: Observable<DayEntry>;
   season: Season;
-  date: string;
 
   constructor(
     private authService: AuthService,
@@ -28,6 +28,8 @@ export class AppLayoutComponent implements OnInit, OnDestroy {
     private vcr: ViewContainerRef,
     private router: Router
   ) {
+    this.initialDatePrfix = this.userService.date;
+
     this.toastr.setRootViewContainerRef(vcr);
     this.toastr.onClickToast().subscribe((toast: Toast) => {
       if (toast.data && toast.data['url']) {

@@ -1,4 +1,11 @@
-import { Component, OnInit, OnDestroy, Output, EventEmitter, Input } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  OnDestroy,
+  Output,
+  EventEmitter,
+  Input
+} from '@angular/core';
 import { SeasonService } from './season.service';
 import { Season } from './season.interface';
 
@@ -8,18 +15,35 @@ import { Season } from './season.interface';
   styleUrls: ['./seasons.component.scss']
 })
 export class SeasonsComponent implements OnInit, OnDestroy {
-
   @Input() initialDatePrefix: string;
   @Output() whenSelected = new EventEmitter();
   seasons: Season[] = [];
 
-  constructor(
-    private seasonService: SeasonService
-  ) {}
+  constructor(private seasonService: SeasonService) {
+    this.seasonService.getAllObservables().subscribe(seasons => {
+      this.seasons = seasons;
+    });
+  }
 
   ngOnInit(): void {
-    this.seasons = this.seasonService.getAll();
-    console.log(this.initialDatePrefix);
+    // this.seasons = this.seasonService.getAll();
+    this.seasonService.getAllObservables().subscribe(seasons => {
+      this.seasons = seasons;
+
+      console.log(this.initialDatePrefix);
+
+      if (this.initialDatePrefix) {
+        const season = this.seasons.filter((s: Season) => {
+          console.log(s.datePrefix);
+          return s.datePrefix === this.initialDatePrefix;
+        });
+
+        if (season && season.length > 0) {
+          console.log(season);
+          this.whenSelected.emit(season);
+        }
+      }
+    });
   }
 
   ngOnDestroy(): void {

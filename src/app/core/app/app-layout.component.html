@@ -9,7 +9,7 @@
     </div>
 
     <app-seasons
-      [initialDatePrefix]="(todayEntry|async)?.datePrefix"
+      [initialDatePrefix]="initialDatePrfix"
       (whenSelected)="seasonSelected($event);"
       ></app-seasons>
 
