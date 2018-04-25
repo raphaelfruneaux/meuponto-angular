@@ -1,0 +1,32 @@
+@import "variables";
+@import "mixins/responsive";
+
+@import "components/label";
+@import "components/dropdown";
+@import "components/alert";
+
+@import "./theme/card";
+@import "./theme/form";
+@import "./theme/buttons";
+
+
+body, html {
+  height: 100%;
+  overflow: hidden;
+}
+
+html {
+  font-family: sans-serif;
+  line-height: 1.15;
+
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -ms-overflow-style: scrollbar;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background: #FFF;
+  font-family: $primary_font;
+  font-size: 16px;
+}

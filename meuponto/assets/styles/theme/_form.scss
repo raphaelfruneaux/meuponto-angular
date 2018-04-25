@@ -1,0 +1,28 @@
+@import '../variables';
+
+.form-control {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #d6d6d6;
+  box-shadow: none;
+  border-radius: 0;
+  color: $color_two;
+  transition: all ease .2s;
+  &:focus {
+    border-bottom: 1px solid $color_one;
+    outline: 0;
+    box-shadow: none;
+  }
+  &:-webkit-autofill {
+    background: transparent !important;
+  }
+}
+
+.form-group {
+  font-weight: 400;
+  font-size: 14px;
+  label {
+    font-weight: 400;
+  }
+}
+
