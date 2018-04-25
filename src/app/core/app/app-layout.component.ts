@@ -1,10 +1,8 @@
-import { Component, ViewContainerRef, OnInit, ViewEncapsulation, OnDestroy } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Observable } from 'rxjs/Observable';
-import { ToastsManager, Toast } from 'ng2-toastr';
 
-import { AuthService } from '../../auth/auth.service';
 import { UserService } from '../../user/user.service';
 import { DayEntry } from '../../shared/day-entry/day-entry.interface';
 import { Season } from '../../shared/seasons/season.interface';
@@ -17,26 +15,15 @@ import { Season } from '../../shared/seasons/season.interface';
 })
 export class AppLayoutComponent implements OnInit, OnDestroy {
 
-  initialDatePrfix: string;
+  initialDate: string;
   todayEntry: Observable<DayEntry>;
   season: Season;
 
   constructor(
-    private authService: AuthService,
     private userService: UserService,
-    private toastr: ToastsManager,
-    private vcr: ViewContainerRef,
     private router: Router
   ) {
-    this.initialDatePrfix = this.userService.date;
-
-    this.toastr.setRootViewContainerRef(vcr);
-    this.toastr.onClickToast().subscribe((toast: Toast) => {
-      if (toast.data && toast.data['url']) {
-        this.router.navigate([toast.data['url']]);
-        this.toastr.clearToast(toast);
-      }
-    });
+    this.initialDate = this.userService.date;
   }
 
   ngOnInit(): void {

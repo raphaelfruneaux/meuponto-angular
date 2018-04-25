@@ -15,7 +15,7 @@ import { Season } from './season.interface';
   styleUrls: ['./seasons.component.scss']
 })
 export class SeasonsComponent implements OnInit, OnDestroy {
-  @Input() initialDatePrefix: string;
+  @Input() initialDate: string;
   @Output() whenSelected = new EventEmitter();
   seasons: Season[] = [];
 
@@ -30,12 +30,12 @@ export class SeasonsComponent implements OnInit, OnDestroy {
     this.seasonService.getAllObservables().subscribe(seasons => {
       this.seasons = seasons;
 
-      console.log(this.initialDatePrefix);
+      console.log(this.initialDate);
 
-      if (this.initialDatePrefix) {
+      if (this.initialDate) {
         const season = this.seasons.filter((s: Season) => {
           console.log(s.datePrefix);
-          return s.datePrefix === this.initialDatePrefix;
+          return s.datePrefix === this.initialDate;
         });
 
         if (season && season.length > 0) {

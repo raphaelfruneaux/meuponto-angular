@@ -8,8 +8,6 @@ import {
   Router
 } from '@angular/router';
 
-import { ToastOptions } from 'ng2-toastr';
-import { ToastModule } from 'ng2-toastr/ng2-toastr';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -28,10 +26,6 @@ import { AuthModule, AuthService } from './auth';
 import { ErrorModule } from './error';
 import { SharedModule } from './shared';
 
-export class ToastCustomOptions extends ToastOptions {
-  animate = 'fade';
-  showCloseButton = true;
-}
 
 @NgModule({
   declarations: [AppComponent, AppLayoutComponent, AuthLayoutComponent],
@@ -40,7 +34,6 @@ export class ToastCustomOptions extends ToastOptions {
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    ToastModule.forRoot(),
     NgbModule.forRoot(),
     MomentModule,
     AngularFireModule.initializeApp(environment.firebase, 'meuponto'),
@@ -52,8 +45,7 @@ export class ToastCustomOptions extends ToastOptions {
   ],
   providers: [
     AuthService,
-    AuthGuard,
-    { provide: ToastOptions, useClass: ToastCustomOptions }
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

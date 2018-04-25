@@ -15,6 +15,7 @@ export class SeasonService {
   private entries$;
   private entries;
   private seasons: Season[] = [];
+  private currentSeason: Season;
 
   constructor(private db: AngularFireDatabase, private auth: AuthService) {
     this.auth.getCurrentUser().subscribe(user => {
