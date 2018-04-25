@@ -20,7 +20,8 @@
   </div>
 
   <div class="form-group text-center">
-    <button type="submit" class="btn btn-primary" (click)="signIn()" [disabled]="formCtrl.form.invalid">
+    <p class="alert" *ngIf="error">{{error}}</p>
+    <button type="submit" class="btn btn-primary" [ngClass]="{'loading': loading}" (click)="signIn()" [disabled]="formCtrl.form.invalid">
       Acessar
     </button>
   </div>
