@@ -1,6 +1,10 @@
 <div class="day-entries">
-  <a href="javascript:;" class="day-options">
+  <a href="javascript:;" class="day-options dropdown" (click)="showDayOptionsDropdown = !showDayOptionsDropdown">
     <i class="fas fa-ellipsis-v"></i>
+    <div class="dropdown-menu" [ngClass]="{'show': showDayOptionsDropdown }">
+      <div class="dropdown-menu-item">Feriado</div>
+      <div class="dropdown-menu-item">Adicionar Observação</div>
+    </div>
   </a>
   <div class="day-info">
     <p class="day-info-title">

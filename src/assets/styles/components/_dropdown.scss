@@ -1,10 +1,13 @@
 .dropdown {
   .dropdown-menu {
     background: white;
+    border: 1px solid #efefef;
     padding: 0;
     text-align: center;
-    left: initial;
-    border: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: fit-content;
     border-radius: 5px;
     overflow: hidden;
     .dropdown-menu-item {
@@ -13,6 +16,7 @@
       color: #666;
       font-weight: 400;
       text-decoration: none;
+      font-size: 12px;
       &.inline-item{
         display: inline-block;
       }
