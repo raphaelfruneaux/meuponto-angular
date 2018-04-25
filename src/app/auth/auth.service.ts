@@ -14,7 +14,10 @@ export enum URL {
 export class AuthService {
   private _authState: Observable<firebase.User> = null;
 
-  constructor(private _firebaseAuth: AngularFireAuth, private router: Router) {
+  constructor(
+    private _firebaseAuth: AngularFireAuth,
+    private router: Router
+  ) {
     this._authState = this._firebaseAuth.authState;
   }
 
@@ -34,14 +37,8 @@ export class AuthService {
   }
 
   signin(email, password) {
-    this._firebaseAuth.auth
-      .signInWithEmailAndPassword(email, password)
-      .then(() => {
-        this.router.navigate(['']);
-      })
-      .catch(error => {
-        console.warn(error);
-      });
+    return this._firebaseAuth.auth
+      .signInWithEmailAndPassword(email, password);
   }
 
   signup(email: string, password: string) {
@@ -51,11 +48,7 @@ export class AuthService {
   }
 
   requestPassword(email: string) {
-    this._firebaseAuth.auth.sendPasswordResetEmail(email).then((data) => {
-      console.log(data);
-    }, error => {
-      console.warn(error);
-    });
+    return this._firebaseAuth.auth.sendPasswordResetEmail(email);
   }
 
   logout(): void {

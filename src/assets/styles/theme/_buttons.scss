@@ -1,6 +1,10 @@
 @import "../variables";
 
 .btn {
+	outline: 0;
+	&:focus {
+		outline: 0;
+	}
 	&.btn-primary {
 		background: $color_one;
 		border-radius: 50px;
@@ -11,6 +15,69 @@
 		box-shadow: 0 2px 16px #71002b75;
 		&:focus, &:hover {
 			background: darken($color: $color_one, $amount: 5%);
+		}
+	}
+	&.loading {
+		transition: width ease .2s;
+		position: relative;
+		color: transparent;
+		padding: 10px;
+		/* Static Shape */
+		&:before {
+			border-radius: 500rem;
+			border: .2em solid rgba(0,0,0,.1);
+	
+			@at-root .btn-primary & {
+				border: 0.2em solid rgba(0, 0, 0, 0.01);
+			}
+			@at-root .btn-primary.filled & {
+				border: 0.2em solid rgba(0, 0, 0, 0.04);
+			}
+		}
+	
+		/* Active Shape */
+		&:after {
+			animation: btn-loader .6s linear;
+			animation-iteration-count: infinite;
+	
+			border-radius: 500rem;
+	
+			border-color: $color_contrast transparent transparent;
+			border-style: solid;
+			border-width: .2em;
+	
+			box-shadow: 0px 0px 0px 1px transparent;
+	
+			@at-root .btn-primary & {
+				border-color: #46d381 transparent transparent;
+			}
+			@at-root .btn-primary:hover & {
+				border-color: #FFF transparent transparent;
+			}
+			@at-root .btn-primary.filled & {
+				border-color: #ffffff transparent transparent;
+			}
+		}
+		
+		&:before,
+		&:after {
+			position: absolute;
+			content: '';
+			left: 0;
+			right: 0;
+			width: 20px;
+			height: 20px;
+			margin: 0 auto;
+		}
+	}
+	
+	/* Active Animation */
+	@keyframes btn-loader {
+		from {
+			transform: rotate(0deg);
+		}
+		to {
+			transform: rotate(360deg);
 		}
 	}
 }
