@@ -16,7 +16,8 @@
     <div class="story">
       <div class="summary"></div>
       <div class="entries">
-        <app-day-entry [entry]="entry" *ngFor="let entry of season?.entries"></app-day-entry>
+        <app-day-entry *ngFor="let entry of entries | async"
+          [entry]="toObservable(entry)"></app-day-entry>
       </div>
     </div>
   </div>

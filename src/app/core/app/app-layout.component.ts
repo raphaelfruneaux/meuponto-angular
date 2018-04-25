@@ -17,6 +17,7 @@ export class AppLayoutComponent implements OnInit, OnDestroy {
 
   initialDate: string;
   todayEntry: Observable<DayEntry>;
+  entries: Observable<DayEntry[]>;
   season: Season;
 
   constructor(
@@ -28,6 +29,7 @@ export class AppLayoutComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.todayEntry = this.userService.todayEntry();
+    this.entries = this.userService.entries();
   }
 
   ngOnDestroy(): void {
@@ -36,5 +38,9 @@ export class AppLayoutComponent implements OnInit, OnDestroy {
 
   seasonSelected(season: Season): void {
     this.season = season;
+  }
+
+  toObservable(data: any) {
+    return Observable.of(data);
   }
 }
