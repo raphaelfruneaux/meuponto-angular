@@ -28,8 +28,9 @@
         required>
     </div>
 
-    <div class="form-group">
-      <button type="submit" class="btn btn-primary btn-block" (click)="signUp()" [disabled]="formCtrl.form.invalid">
+    <div class="form-group text-center">
+        <p class="alert" *ngIf="error">{{error}}</p>
+        <button type="submit" class="btn btn-primary" [ngClass]="{'loading': loading}" (click)="signUp()" [disabled]="formCtrl.form.invalid">
         Criar conta
       </button>
     </div>
