@@ -10,11 +10,19 @@ import { Observable } from 'rxjs/Observable';
 })
 export class SidebarComponent implements OnInit, OnDestroy {
   todayEntry: Observable<DayEntry>;
+  welcomeMsg: string;
 
   constructor(private userService: UserService) { }
 
   ngOnInit() {
-    this.todayEntry = this.userService.todayEntry();
+    this.userService.todayEntry().subscribe(entry => {
+      console.log(entry.pontos);
+      if (entry.pontos.length > 0) {
+        this.welcomeMsg = 'um ótimo dia de trabalho pra você.';
+      } else {
+        this.welcomeMsg = 'você ainda não registrou ponto hoje.';
+      }
+    });
   }
 
   ngOnDestroy() {
