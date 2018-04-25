@@ -16,8 +16,8 @@ import { Season } from '../../shared/seasons/season.interface';
 export class AppLayoutComponent implements OnInit, OnDestroy {
 
   initialDate: string;
-  todayEntry: Observable<DayEntry>;
-  entries: Observable<DayEntry[]>;
+  todayEntry$: Observable<DayEntry>;
+  entries$: Observable<DayEntry[]>;
   season: Season;
 
   constructor(
@@ -28,8 +28,8 @@ export class AppLayoutComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.todayEntry = this.userService.todayEntry();
-    this.entries = this.userService.entries();
+    this.todayEntry$ = this.userService.todayEntry();
+    this.entries$ = this.userService.entries();
   }
 
   ngOnDestroy(): void {

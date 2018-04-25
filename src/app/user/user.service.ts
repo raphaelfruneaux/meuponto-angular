@@ -50,7 +50,13 @@ export class UserService {
   entries() {
     return this.db
       .list(`${this.endpoint}/${this._authUser.uid}/registros`)
-      .valueChanges();
+      .valueChanges()
+      .map(data => {
+        data.sort((a, b) => {
+          return a < b ? -1 : 1;
+        });
+        return data;
+      });
   }
 
   todayEntry(): Observable<DayEntry> {
