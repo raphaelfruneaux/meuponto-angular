@@ -16,6 +16,7 @@ import { DayEntry } from './day-entry.interface';
   styleUrls: ['./day-entry.component.scss']
 })
 export class DayEntryComponent implements OnInit, OnDestroy {
+  showDayOptionsDropdown = false;
   @Input() today: boolean;
   @Input() entry: Observable<DayEntry>;
   private _entry: DayEntry;

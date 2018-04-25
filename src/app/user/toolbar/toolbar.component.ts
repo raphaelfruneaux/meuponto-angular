@@ -11,6 +11,7 @@ import { AuthService } from '../../auth/auth.service';
   styleUrls: ['./toolbar.component.scss']
 })
 export class ToolbarComponent implements OnInit {
+  showUserDropdown = false;
   public user: Observable<UserInfo>;
 
   constructor(private authService: AuthService) { }
