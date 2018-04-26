@@ -77,7 +77,7 @@ export class UserService {
             return;
           }
           const entry = data[0] as DayEntry;
-          entry.dateEntry = new Date(entry.date.replace(/-/g,'/'));
+          entry.dateEntry = new Date(entry.date.replace(/-/g, '/'));
 
           const _month = entry.dateEntry.getMonth() + 1;
           const month = _month < 10 ? `0${_month}` : _month;
