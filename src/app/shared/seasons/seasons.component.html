@@ -1,5 +1,5 @@
 <div class="seasons">
-  <app-season-item *ngFor="let season of seasons"
+  <app-season-item *ngFor="let season of seasons$ | async"
     [season]="season"
     (click)="handleClick(season)"
     ></app-season-item>

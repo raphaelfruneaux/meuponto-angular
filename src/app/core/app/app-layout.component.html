@@ -5,7 +5,7 @@
 
   <div class="right-content">
     <div class="today">
-      <app-day-entry [entry]="todayEntry" [today]="true"></app-day-entry>
+      <app-day-entry [entry]="todayEntry$" [today]="true"></app-day-entry>
     </div>
 
     <app-seasons
@@ -16,8 +16,10 @@
     <div class="story">
       <div class="summary"></div>
       <div class="entries">
-        <app-day-entry *ngFor="let entry of entries | async"
-          [entry]="toObservable(entry)"></app-day-entry>
+        <app-day-entry
+          *ngFor="let entry of entries$ | async"
+          [entry]="toObservable(entry)"
+          ></app-day-entry>
       </div>
     </div>
   </div>

@@ -6,6 +6,9 @@ import {
   EventEmitter,
   Input
 } from '@angular/core';
+
+import { Observable } from 'rxjs/Observable';
+
 import { SeasonService } from './season.service';
 import { Season } from './season.interface';
 
@@ -17,30 +20,21 @@ import { Season } from './season.interface';
 export class SeasonsComponent implements OnInit, OnDestroy {
   @Input() initialDate: string;
   @Output() whenSelected = new EventEmitter();
-  seasons: Season[] = [];
+  seasons$: Observable<Season[]>;
 
   constructor(private seasonService: SeasonService) {
-    this.seasonService.getAllObservables().subscribe(seasons => {
-      this.seasons = seasons;
-    });
+    this.seasons$ = this.seasonService.getAllObservables();
   }
 
   ngOnInit(): void {
-    // this.seasons = this.seasonService.getAll();
-    this.seasonService.getAllObservables().subscribe(seasons => {
-      this.seasons = seasons;
-
-      console.log(this.initialDate);
-
+    this.seasons$.subscribe(seasons => {
       if (this.initialDate) {
-        const season = this.seasons.filter((s: Season) => {
-          console.log(s.datePrefix);
+        const season = seasons.filter((s: Season) => {
           return s.datePrefix === this.initialDate;
         });
 
         if (season && season.length > 0) {
-          console.log(season);
-          this.whenSelected.emit(season);
+          this.whenSelected.emit(season[0]);
         }
       }
     });
