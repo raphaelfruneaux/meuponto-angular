@@ -13,7 +13,8 @@ import { DayEntry } from './day-entry.interface';
 @Component({
   selector: 'app-day-entry',
   templateUrl: './day-entry.component.html',
-  styleUrls: ['./day-entry.component.scss']
+  styleUrls: ['./day-entry.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class DayEntryComponent implements OnInit, OnDestroy {
   showDayOptionsDropdown = false;

@@ -102,5 +102,9 @@ main {
 .today {
   .day-entries {
     box-shadow: 0 2px 12px 0 #00000021;
+    .day-info {
+      padding-right: 40px;
+      width: auto;
+    }
   }
 }

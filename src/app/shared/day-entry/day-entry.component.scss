@@ -18,12 +18,14 @@
     display: inline-block;
     padding-right: 10px;
     padding-left: 10px;
+    border-right: 1px dashed #d8d8d8;
+    width: 150px;
     i {
       margin-right: 5px;
     }
     .day-info-title {
       font-family: $secondary_font;
-      font-size: 30px;
+      font-size: 25px;
       margin-bottom: 0;
       i {
         font-size: 14px;
