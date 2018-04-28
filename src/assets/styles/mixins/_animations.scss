@@ -2,12 +2,12 @@
 	margin-top: 0 !important;
 	visibility: visible !important;
 	opacity: 1 !important;
-	transition: all ease .2s;
+	transition: all ease-out .2s;
 }
 @mixin fade-animation-hidden {
   visibility: hidden;
 	opacity: 0;
-	transition: all ease .2s;
+	transition: all ease-out .2s;
 }
 @mixin fade-down-hidden {
 	margin-top: -20px;
