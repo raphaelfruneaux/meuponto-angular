@@ -12,14 +12,16 @@ export class SidebarComponent implements OnInit, OnDestroy {
   todayEntry: Observable<DayEntry>;
   welcomeMsg: string;
 
-  constructor(private userService: UserService) { }
+  maskEntry = [/[0-2]/, /\d/, ':', /[0-5]/, /\d/];
+
+  constructor(private userService: UserService) {
+    this.welcomeMsg = 'um ótimo dia de trabalho pra você.';
+  }
 
   ngOnInit() {
     this.userService.todayEntry().subscribe(entry => {
-      console.log(entry.pontos);
-      if (entry.pontos.length > 0) {
-        this.welcomeMsg = 'um ótimo dia de trabalho pra você.';
-      } else {
+      console.log(entry);
+      if (entry.pontos.length === 0) {
         this.welcomeMsg = 'você ainda não registrou ponto hoje.';
       }
     });

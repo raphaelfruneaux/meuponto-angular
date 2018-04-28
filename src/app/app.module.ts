@@ -7,6 +7,7 @@ import {
   RouterStateSnapshot,
   Router
 } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AngularFireModule } from 'angularfire2';
@@ -41,7 +42,7 @@ import { SharedModule } from './shared';
     AngularFirestoreModule,
     AngularFireDatabaseModule,
     ErrorModule,
-    SharedModule
+    SharedModule,
   ],
   providers: [
     AuthService,

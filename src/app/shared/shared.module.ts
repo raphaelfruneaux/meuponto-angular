@@ -1,9 +1,9 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { CardComponent } from './card/card.component';
 
 import { UserModule } from '../user';
 import { TimelineComponent } from './timeline/timeline.component';
@@ -13,9 +13,10 @@ import { TimespotComponent } from './timeline/timespot/timespot.component';
 import { SeasonService } from './seasons/season.service';
 import { SeasonsComponent } from './seasons/seasons.component';
 import { SeasonItemComponent } from './seasons/season-item/season-item.component';
+import { TextMaskModule } from 'angular2-text-mask';
 
 const COMPONENTS = [
-  HeaderComponent, SidebarComponent, CardComponent,
+  HeaderComponent, SidebarComponent,
   DayEntryComponent, SeasonsComponent, SeasonItemComponent,
   TimelineComponent, TimespotComponent
 ];
@@ -23,7 +24,9 @@ const COMPONENTS = [
 @NgModule({
   imports: [
     CommonModule,
-    UserModule
+    UserModule,
+    FormsModule,
+    TextMaskModule
   ],
   providers: [SeasonService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

@@ -1,7 +1,7 @@
 <div class="daily-summary">
   <app-user-toolbar></app-user-toolbar>
   <div class="timer-register">
-    <input type="text" class="form-control" name="time-register" id="time-register" placeholder="00:00">
+    <input type="text" class="form-control" name="time-register" id="time-register" [textMask]="{placeholderChar: '_', mask: maskEntry}" placeholder="00:00">
     <span class="tip">Pressione ENTER para salvar</span>
   </div>
   <div class="timer-feedback">
