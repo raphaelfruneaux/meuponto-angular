@@ -15,9 +15,10 @@ import { SeasonService } from './seasons/season.service';
 import { SeasonsComponent } from './seasons/seasons.component';
 import { SeasonItemComponent } from './seasons/season-item/season-item.component';
 import { TextMaskModule } from 'angular2-text-mask';
+import { CardComponent } from './card/card.component';
 
 const COMPONENTS = [
-  HeaderComponent, SidebarComponent,
+  HeaderComponent, SidebarComponent, CardComponent,
   DayEntryComponent, SeasonsComponent, SeasonItemComponent,
   TimelineComponent, TimespotComponent
 ];
