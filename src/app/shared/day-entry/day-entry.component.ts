@@ -27,10 +27,10 @@ import { DayEntry } from './day-entry.interface';
       state('in', style({transform: 'translateY(0)'})),
       transition(':enter', [
         style({
-          transform: 'translateY(-7%)',
+          transform: 'translateY(-20%)',
           opacity: 0
         }),
-        animate('300ms ease-in')
+        animate('400ms ease-out')
       ]),
       transition(':leave', [
         animate('200ms ease-out', style({

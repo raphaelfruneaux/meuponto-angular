@@ -19,7 +19,7 @@ import {
       state('in', style({transform: 'translateX(0)'})),
       transition(':enter', [
         style({
-          transform: 'translateX(-7%)',
+          transform: 'translateX(-5%)',
           opacity: 0
         }),
         animate('600ms ease-out')
