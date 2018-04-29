@@ -1,4 +1,19 @@
-<div class="timeline-spot">
+<div class="timeline-spot" (click)="openModal(content)">
   <span class="timeline-spot-title"><i class="far fa-clock"></i> {{spot}}</span>
   <!-- <span class="timeline-spot-subtitle"></span> -->
 </div>
+
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">Editar ponto</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>One fine body&hellip;</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="c('Close click')">Close</button>
+  </div>
+</ng-template>

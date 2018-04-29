@@ -1,6 +1,7 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -26,7 +27,8 @@ const COMPONENTS = [
     CommonModule,
     UserModule,
     FormsModule,
-    TextMaskModule
+    TextMaskModule,
+    NgbModule
   ],
   providers: [SeasonService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
