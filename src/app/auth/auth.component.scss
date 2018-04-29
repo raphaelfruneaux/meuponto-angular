@@ -40,7 +40,8 @@
 		padding: 20px;
 		background: white;
     height: 100%;
-    overflow: auto;
+		overflow-y: auto;
+		overflow-x: hidden;
 		@include min-desktop-size {
 			width: 350px;
 		}

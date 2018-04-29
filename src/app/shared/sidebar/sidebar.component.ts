@@ -22,7 +22,7 @@ import {
           transform: 'translateX(-5%)',
           opacity: 0
         }),
-        animate('600ms ease-out')
+        animate('600ms cubic-bezier(0.25, 0.46, 0.45, 0.94)')
       ]),
       transition(':leave', [
         animate('200ms ease-in', style({
