@@ -1,4 +1,4 @@
-<div class="day-entries">
+<div class="day-entries" [@flyInOut]="state">
   <a href="javascript:;" class="day-options dropdown" (click)="showDayOptionsDropdown = !showDayOptionsDropdown">
     <i class="fas fa-ellipsis-v"></i>
     <div class="dropdown-menu" [ngClass]="{'show': showDayOptionsDropdown }">

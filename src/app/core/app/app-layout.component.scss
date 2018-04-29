@@ -8,15 +8,15 @@ main {
 }
 
 .left-content {
-  width: $left_content_width;
-  height: 100%;
-  overflow: auto;
-  background: $color_two;
-  color: $color_contrast;
-  overflow: auto;
+  // width: $left_content_width;
+  // height: 100%;
+  // overflow: auto;
+  // background: $color_two;
+  // color: $color_contrast;
+  // overflow: auto;
 
-  padding: 30px 50px;
-  font-size: 13px;
+  // padding: 30px 50px;
+  // font-size: 13px;
   * {
     transition: all ease .2s;
   }

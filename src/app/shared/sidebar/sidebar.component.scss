@@ -1,6 +1,18 @@
 @import "../../../assets/styles/variables";
 @import "../../../assets/styles/mixins/animations";
 
+.sidebar {
+  width: $left_content_width;
+  height: 100vh;
+  overflow: auto;
+  background: $color_two;
+  color: $color_contrast;
+  overflow: auto;
+
+  padding: 30px 50px;
+  font-size: 13px;
+}
+
 .daily-summary {
   // .user {
   //   text-align: center;

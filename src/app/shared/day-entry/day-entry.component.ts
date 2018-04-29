@@ -5,6 +5,13 @@ import {
   Input,
   OnDestroy
 } from '@angular/core';
+import {
+  trigger,
+  state,
+  transition,
+  style,
+  animate
+} from '@angular/animations';
 
 import { Observable } from 'rxjs/Observable';
 
@@ -14,8 +21,27 @@ import { DayEntry } from './day-entry.interface';
   selector: 'app-day-entry',
   templateUrl: './day-entry.component.html',
   styleUrls: ['./day-entry.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  animations: [
+    trigger('flyInOut', [
+      state('in', style({transform: 'translateY(0)'})),
+      transition(':enter', [
+        style({
+          transform: 'translateY(-7%)',
+          opacity: 0
+        }),
+        animate('300ms ease-in')
+      ]),
+      transition(':leave', [
+        animate('200ms ease-out', style({
+          transform: 'translateY(100%)',
+          opacity: 0
+        }))
+      ])
+    ])
+  ]
 })
+
 export class DayEntryComponent implements OnInit, OnDestroy {
   showDayOptionsDropdown = false;
   @Input() today: boolean;
