@@ -1,12 +1,9 @@
 <div class="user">
-  <div class="user-pic"
-    *ngIf="gravatarUrl"
-    [style.backgroundImage]="gravatarUrl"
-  ></div>
+  <div class="user-pic" *ngIf="gravatarUrl" [style.backgroundImage]="gravatarUrl"></div>
   <div class="user-name dropdown" (click)="showUserDropdown = !showUserDropdown">
-      {{ (user | async)?.displayName || (user | async)?.email }}
+    {{ (user | async)?.displayName || (user | async)?.email }}
     <i class="fas fa-chevron-down"></i>
-    <div class="dropdown-menu" [ngClass]="{'show': showUserDropdown }">
+    <div class="dropdown-menu" [class.show]="showUserDropdown">
       <a class="dropdown-menu-item" routerLink="/user/profile" href="#">Minha conta</a>
       <a class="dropdown-menu-item" href="#">Configurações</a>
       <div class="dropdown-menu-item" (click)="logout()">Sair</div>
